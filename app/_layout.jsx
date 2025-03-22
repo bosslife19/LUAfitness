@@ -18,6 +18,8 @@ export default function RootLayout() {
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     Poppins: require("../assets/fonts/Poppins-Regular.ttf"),
     montserrat: require("../assets/fonts/montserrat/Montserrat-Regular.ttf"),
+    montserratMeduim: require("../assets/fonts/montserrat/Montserrat-Medium.ttf"),
+
     SofiaProMedium: require("../assets/fonts/sofia/Sofia Pro Medium Az.otf"),
     SofiaProBold: require("../assets/fonts/sofia/Sofia Pro Black Az.otf"),
     Alata: require("../assets/fonts/Alata/Alata-Regular.ttf"),
@@ -45,12 +47,12 @@ export default function RootLayout() {
         {/* Other Screens */}
         <Stack.Screen name="index" />
         <Stack.Screen name="(routes)/welcomeScreen" />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="(tabs)/home"
           options={{
             headerShown: false,
           }}
-        /> */}
+        />
         {/* Add the Confirmation screen here */}
 
         {/* <Stack.Screen name="(routes)/successfull-transfer" />

@@ -1,5 +1,5 @@
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { OpaqueColorValue, StyleProp, ViewStyle } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import React from 'react';
 
 const MAPPING = {
   'house.fill': 'home',
@@ -8,6 +8,8 @@ const MAPPING = {
   'chevron.right': 'chevron-right',
 };
 
-export function IconSymbol({ name, size = 24, color, style }) {
-  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />;
-}
+const IconSymbols = ({ name, size = 24, color, style }) => {
+  return <MaterialIcons color={color} size={size} name={MAPPING[name] || name} style={style} />;
+};
+
+export default IconSymbols;

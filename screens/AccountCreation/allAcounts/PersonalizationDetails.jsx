@@ -11,9 +11,9 @@ export default function PersonalizationDetails({ onNext }) {
   const [fitnessGoals, setFitnessGoals] = useState("");
 
   const handleProceed =()=>{
-
+ 
     // if sucessfull it will go to the next page
-    onNext(); 
+    onNext();  
   }
 
   const handleSkip =() =>{

@@ -9,7 +9,7 @@ import { ThemedView } from "../components/ThemedView";
 import { useBottomTabOverflow } from "../components/ui/TabBarBackground";
 import { useColorScheme } from "../hooks/useColorScheme";
 
-const HEADER_HEIGHT = 250;
+const HEADER_HEIGHT = "100%";
 
 export default function ParallaxScrollView({ children, headerImage, headerBackgroundColor }) {
   const colorScheme = useColorScheme() ?? "light";
