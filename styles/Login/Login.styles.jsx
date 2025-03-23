@@ -4,10 +4,10 @@ import { StyleSheet } from "react-native";
     welcomeText: {
       textAlign: "center",
       fontSize: 26,
-      fontFamily:"montserrat"
+      fontFamily:"montserratMeduim"
     },
     learningText: {   
-      fontFamily:"montserrat",
+      fontFamily:"montserratMeduim",
       textAlign: "center",
       color: "#575757",
       fontSize: 15,
@@ -103,7 +103,7 @@ import { StyleSheet } from "react-native";
       fontWeight:700,
       fontSize:18,
       textAlign: "center",
-      fontFamily: "montserrat",
+      fontFamily: "montserratMeduim",
     },
     socialLogin: {
     //   flexDirection: "row",
@@ -121,7 +121,7 @@ import { StyleSheet } from "react-native";
     signUpText: {
       fontWeight:700,
       fontSize: 18,
-      fontFamily: "montserrat",
+      fontFamily: "montserratMeduim",
       color: "#8A2BE2",
       marginLeft: 5,
     },

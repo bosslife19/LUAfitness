@@ -19,7 +19,6 @@ export default function RootLayout() {
     Poppins: require("../assets/fonts/Poppins-Regular.ttf"),
     montserrat: require("../assets/fonts/montserrat/Montserrat-Regular.ttf"),
     montserratMeduim: require("../assets/fonts/montserrat/Montserrat-Medium.ttf"),
-
     SofiaProMedium: require("../assets/fonts/sofia/Sofia Pro Medium Az.otf"),
     SofiaProBold: require("../assets/fonts/sofia/Sofia Pro Black Az.otf"),
     Alata: require("../assets/fonts/Alata/Alata-Regular.ttf"),

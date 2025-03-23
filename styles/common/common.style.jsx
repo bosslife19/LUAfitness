@@ -53,7 +53,7 @@ export const commonstyles = StyleSheet.create({
         display: "none", // Hides the default active dot
       },
     title:{
-      fontFamily:"montserrat",
+      fontFamily:"montserratMeduim",
         fontSize:  36,
         fontWeight:"700",
         lineHeight:38,
@@ -61,7 +61,7 @@ export const commonstyles = StyleSheet.create({
         color:"#fff"
     },
     description:{
-      fontFamily:"montserrat",
+      fontFamily:"montserratMeduim",
          fontSize: 36,
          fontWeight:"700",
          lineHeight:38,
@@ -88,14 +88,14 @@ export const commonstyles = StyleSheet.create({
       borderRadius:30,
     },
     textSkip:{
-      fontFamily:"montserrat",
+      fontFamily:"montserratMeduim",
       fontSize:18,
       fontWeight:700,
       color:"#fff"
     },
     Getstart:{
       color:"#000",
-      fontFamily:"montserrat",
+      fontFamily:"montserratMeduim",
       fontSize:18,
       fontWeight:700,
     },

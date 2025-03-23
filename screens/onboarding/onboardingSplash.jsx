@@ -5,7 +5,7 @@ import { router } from "expo-router"; // Ensure expo-router is correctly install
 const OnBoardingScreen = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.push('/(routes)/account-creation'); // Navigate to your onboarding screen
+      router.push('/(routes)/welcomeScreen'); // Navigate to your onboarding screen
     }, 2000);
 
     return () => clearTimeout(timer); // Cleanup timeout on unmount

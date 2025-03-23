@@ -132,7 +132,7 @@ export default function SignupScreen() {
          style={[
               SectionsLogin.welcomeText,
               {
-                fontFamily: "montserrat",
+                fontFamily: "montserratMeduim",
                 color: "#0F172A",
                 lineHeight: 43.95,
                 // fontSize:26,
@@ -146,7 +146,7 @@ export default function SignupScreen() {
        
            <Text style={[ SectionsLogin.welcomeText,
             {
-              fontFamily: "montserrat",
+              fontFamily: "montserratMeduim",
               color: "#475569",
               fontSize:14,
                paddingHorizontal:10,
@@ -163,7 +163,7 @@ export default function SignupScreen() {
               <TextInput
                 style={[
                   SectionsLogin.input,
-                  { fontFamily: "montserrat", paddingHorizontal: 0 },
+                  { fontFamily: "montserratMeduim", paddingHorizontal: 0 },
                   Platform.OS === "ios" && styles.iosPlaceholder, // Conditional styling for iOS
                 ]}
                 // keyboardType="email-address"
@@ -189,7 +189,7 @@ export default function SignupScreen() {
                 <Text
                   style={[
                     SectionsLogin.loginButtonText,
-                    { fontFamily: "montserrat" },
+                    { fontFamily: "montserratMeduim" },
                   ]}
                 >
                  Register
@@ -198,7 +198,7 @@ export default function SignupScreen() {
             </TouchableOpacity>
  
              <View style={{paddingVertical:20}}>
-              <Text style={{textAlign:"center",color:"#334155",fontFamily:"montserrat", fontWeight:600, fontSize:14}}>Or Sign up With</Text>
+              <Text style={{textAlign:"center",color:"#334155",fontFamily:"montserratMeduim", fontWeight:600, fontSize:14}}>Or Sign up With</Text>
               <View style={{flexDirection:"row",gap:10, alignItems:"center",marginTop:20}}>
               <TouchableOpacity>
                   <Facebook/>
@@ -221,7 +221,7 @@ export default function SignupScreen() {
             <View style={SectionsLogin.signupRedirect}>
               <Text
                 style={{
-                  fontFamily: "SofiaPro",
+                  fontFamily: "montserratMeduimMeduim",
                   fontSize: 18,
                   lineHeight: 26.37,
                   fontWeight: "400",
@@ -246,7 +246,7 @@ export default function SignupScreen() {
 
 const styles = StyleSheet.create({
   iosPlaceholder: {
-    fontFamily: "SofiaPro", // Ensure the placeholder uses the same font
+    fontFamily: "montserratMeduimMeduim", // Ensure the placeholder uses the same font
     color:'#aaa'
   },
   container: {

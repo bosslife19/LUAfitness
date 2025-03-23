@@ -75,7 +75,7 @@ export default function FirstScreen() {
             <AntDesign name="arrowright" size={24} color="black" />
           </View>
           {currentIndex === 0 && (
-            <TouchableOpacity onPress={handleGetStarted} style={commonstyles.skipButton}>
+             <TouchableOpacity onPress={handleGetStarted} style={commonstyles.skipButton}>
               <Text style={commonstyles.textSkip}>Skip</Text>
             </TouchableOpacity>
           )}
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   },
   texts: {
     color: "#CBD5E1",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
     fontWeight: "500",
     fontSize: 15,
     lineHeight: 18,
