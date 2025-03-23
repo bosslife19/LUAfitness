@@ -69,7 +69,7 @@ export default function OTPMainEmail({ onNext }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Verification</Text>
-      <Text style={{color:"#475569", fontWeight:500,fontFamily:"montserrat",fontSize:14,textAlign:"center",paddingHorizontal:20}}>Enter the 6-digit code we sent to your email</Text>
+      <Text style={{color:"#475569", fontWeight:500,fontFamily:"montserratMeduim",fontSize:14,textAlign:"center",paddingHorizontal:20}}>Enter the 6-digit code we sent to your email</Text>
      
       <View style={styles.otpContainer}>
         {otp.map((digit, index) => (
@@ -92,12 +92,12 @@ export default function OTPMainEmail({ onNext }) {
       <Text style={styles.timerText}>
         {timer > 0 ? 
         <Text
-        style={{color:"#475569", fontWeight:500,fontFamily:"montserrat",fontSize:14,textAlign:"center",paddingHorizontal:20}}
+        style={{color:"#475569", fontWeight:500,fontFamily:"montserratMeduim",fontSize:14,textAlign:"center",paddingHorizontal:20}}
         >
         `Get a new code in <Text style={{color:"#E11D48",fontWeight:700}}>({formatTime()})</Text>
         </Text> : (
           <TouchableOpacity onPress={handleResendCode}>
-            <Text style={{color:"#475569", fontWeight:500,fontFamily:"montserrat",fontSize:14,textAlign:"center",paddingHorizontal:20}} >
+            <Text style={{color:"#475569", fontWeight:500,fontFamily:"montserratMeduim",fontSize:14,textAlign:"center",paddingHorizontal:20}} >
             Didn’t receive any code? 
                 <Text style={styles.resendText}> Resend</Text>
             </Text>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
-    fontFamily:"montserrat",
+    fontFamily:"montserratMeduim",
     fontWeight: 'bold',
     marginBottom: 16,
     textAlign:"center"

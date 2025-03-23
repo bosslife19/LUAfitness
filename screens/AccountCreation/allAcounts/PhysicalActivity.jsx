@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 20,
     color: "#334155",
-     fontFamily:"montserrat"
+     fontFamily:"montserratMeduim"
   },
   questionContainer: {
     marginBottom: 20,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "#334155",
     marginBottom: 10,
-    fontFamily:"montserrat"
+    fontFamily:"montserratMeduim"
   },
   checkboxContainer: {
     flexDirection: "row",
@@ -107,6 +107,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: "#334155",
     fontWeight: "500",
-     fontFamily:"montserrat"
+     fontFamily:"montserratMeduim"
   },
 });

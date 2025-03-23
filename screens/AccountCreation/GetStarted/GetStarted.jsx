@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
       },
       button: {
         fontSize: 18,
+        fontFamily:"montserratMeduim",
         fontWeight: "700",
         textAlign: "center",
         color: "#8A2BE2",

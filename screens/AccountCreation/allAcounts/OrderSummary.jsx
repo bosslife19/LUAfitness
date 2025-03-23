@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 20,
     fontWeight: "700",
-    fontFamily: "Montserrat-Medium",
+    fontFamily: "montserratMeduim",
     marginBottom: 15,
     color: "#0F172A",
   },
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    fontFamily: "Montserrat-Medium",
+    fontFamily: "montserratMeduim",
     color: "#64748B",
   },
   buttonContainer: {
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   checkboxText: {
     fontSize: 14,
-    fontFamily: "Montserrat-Medium",
+    fontFamily: "montserratMeduim",
     color: "#475569",
     flexWrap: "wrap",
     paddingRight: 20,

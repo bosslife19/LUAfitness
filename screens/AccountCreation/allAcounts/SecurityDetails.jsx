@@ -66,7 +66,7 @@ export default function SecurityDetails({onNext}) {
          style={[
               SectionsLogin.welcomeText,
               {
-                fontFamily: "montserrat",
+                fontFamily: "montserratMeduim",
                 color: "#0F172A",
                 lineHeight: 43.95,
                 // fontSize:26,
@@ -79,7 +79,7 @@ export default function SecurityDetails({onNext}) {
        
            <Text style={[ SectionsLogin.welcomeText,
             {
-              fontFamily: "montserrat",
+              fontFamily: "montserratMeduim",
               color: "#475569",
               fontSize:14,
               paddingHorizontal:30,
@@ -96,7 +96,7 @@ export default function SecurityDetails({onNext}) {
               <TextInput
                 style={[
                   styles.input,
-                  { fontFamily: "montserrat", paddingHorizontal: 0 , marginLeft:5},
+                  { fontFamily: "montserratMeduim", paddingHorizontal: 0 , marginLeft:5},
                   Platform.OS === "ios" && styles.iosPlaceholder, // Conditional styling for iOS
                 ]}
                 secureTextEntry={!isPasswordVisible}
@@ -108,7 +108,7 @@ export default function SecurityDetails({onNext}) {
                 onChangeText={(value) => setPassword(value)}
               />
               <TouchableOpacity
-                style={[SectionsLogin.visibleIcon, { fontFamily: "montserrat" }]}
+                style={[SectionsLogin.visibleIcon, { fontFamily: "montserratMeduim" }]}
                 onPress={() => setPasswordVisible(!isPasswordVisible)}
               >
                 {isPasswordVisible ? (
@@ -128,7 +128,7 @@ export default function SecurityDetails({onNext}) {
               <TextInput
                 style={[
                   styles.input,
-                  { fontFamily: "montserrat", paddingHorizontal: 0 ,marginLeft:5},
+                  { fontFamily: "montserratMeduim", paddingHorizontal: 0 ,marginLeft:5},
                   Platform.OS === "ios" && styles.iosPlaceholder, // Conditional styling for iOS
                 ]}
                 secureTextEntry={!isPasswordVisibles}
@@ -140,7 +140,7 @@ export default function SecurityDetails({onNext}) {
                 onChangeText={(value) => setconfirmpassword(value)}
               />
               <TouchableOpacity
-                style={[SectionsLogin.visibleIcon, { fontFamily: "montserrat" }]}
+                style={[SectionsLogin.visibleIcon, { fontFamily: "montserratMeduim" }]}
                 onPress={() => setPasswordVisibles(!isPasswordVisibles)}
               >
                 {isPasswordVisibles ? (
@@ -164,7 +164,7 @@ export default function SecurityDetails({onNext}) {
                 <Text
                   style={[
                     SectionsLogin.loginButtonText,
-                    { fontFamily: "montserrat" },
+                    { fontFamily: "montserratMeduim" },
                   ]}
                 >
                  Proceed
@@ -188,7 +188,7 @@ export default function SecurityDetails({onNext}) {
 
 const styles = StyleSheet.create({
   iosPlaceholder: {
-    fontFamily: "montserrat", // Ensure the placeholder uses the same font
+    fontFamily: "montserratMeduim", // Ensure the placeholder uses the same font
     color:'#aaa'
   },
   container: {

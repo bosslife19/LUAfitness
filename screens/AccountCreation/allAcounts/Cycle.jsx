@@ -33,7 +33,7 @@ const Cycles = () => {
 const styles = StyleSheet.create({
     desc:{
         color:"#64748B",
-        fontFamily:"montserrat",
+        fontFamily:"montserratMeduim",
         fontWeight:500,
         fontSize:14,
        maxWidth:"80%"
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         color:"#0F172A",
         fontSize:26,
         fontWeight:700,
-        fontFamily:"montserrat",
+        fontFamily:"montserratMeduim",
         marginBottom:10
     },
     inputContainer:{
@@ -64,13 +64,13 @@ const pickerStyles = {
     fontSize: 14,
     paddingVertical: 10,
     color: "#0F172A",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
   },
   inputAndroid: {
     fontSize: 14,
     paddingVertical: 5,
     color: "#0F172A",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
   },
 };
 export default Cycles;

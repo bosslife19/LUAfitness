@@ -27,7 +27,7 @@ export default function PersonalizationDetails({ onNext }) {
          style={[
               SectionsLogin.welcomeText,
               {
-                fontFamily: "montserrat",
+                fontFamily: "montserratMeduim",
                 color: "#0F172A",
                 lineHeight: 43.95,
                 // fontSize:26,
@@ -40,7 +40,7 @@ export default function PersonalizationDetails({ onNext }) {
        
            <Text style={[ SectionsLogin.welcomeText,
             {
-              fontFamily: "montserrat",
+              fontFamily: "montserratMeduim",
               color: "#475569",
               fontSize:14,
               paddingHorizontal:30,
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
     fontWeight: "bold",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
     color: "#0F172A",
     textAlign: "center",
     marginBottom: 10,
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 14,
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
     color: "#0F172A",
   },
   button: {
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
   },
   btns: {
     marginTop:15,
@@ -171,12 +171,12 @@ const pickerStyles = {
     fontSize: 14,
     paddingVertical: 10,
     color: "#0F172A",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
   },
   inputAndroid: {
     fontSize: 14,
     paddingVertical: 5,
     color: "#0F172A",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
   },
 };

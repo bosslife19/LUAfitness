@@ -61,13 +61,13 @@ const styles = StyleSheet.create({
     color: "#0F172A",
     fontSize: 26,
     fontWeight: "700",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
     marginBottom: 10,
     textAlign: "center",
   },
   desc: {
     color: "#64748B",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
     fontWeight: "500",
     fontSize: 14,
     maxWidth:"80%",
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   optionText: {
     color: "#0F172A",
     fontSize: 15,
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
     fontWeight: "bold",
         textAlign: "center",
   },
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   },
   selectedOptionText: {
     
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
   },
   checkbox: {
     width: 18,

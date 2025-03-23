@@ -58,14 +58,14 @@ const styles = StyleSheet.create({
     color: "#0F172A",
     fontSize: 24,
     fontWeight: "700",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
     marginBottom: 10,
     // maxWidth:"70%"
     // textAlign: "center",
   },
   desc: {
     color: "#64748B",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
     fontWeight: "500",
     fontSize: 14,
     // textAlign: "center",
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     color: "#64748B",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
   },
   selectedLabel: {
     color: "#8A2BE2",
@@ -95,6 +95,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: "#8A2BE2",
-    fontFamily: "montserrat",
+    fontFamily: "montserratMeduim",
   },
 });

@@ -27,7 +27,7 @@ const CreateAccount = () => {
               <TextInput
                 style={[
                   SectionsLogin.input,
-                  { fontFamily: "montserrat", paddingHorizontal: 0 },
+                  { fontFamily: "montserratMeduim", paddingHorizontal: 0 },
                   Platform.OS === "ios" && styles.iosPlaceholder, // Conditional styling for iOS
                 ]}
                 // keyboardType="email-address"
@@ -44,7 +44,7 @@ const CreateAccount = () => {
               <TextInput
                 style={[
                   SectionsLogin.input,
-                  { fontFamily: "montserrat", paddingHorizontal: 0 },
+                  { fontFamily: "montserratMeduim", paddingHorizontal: 0 },
                   Platform.OS === "ios" && styles.iosPlaceholder, // Conditional styling for iOS
                 ]}
                 secureTextEntry={!isPasswordVisible}
@@ -55,7 +55,7 @@ const CreateAccount = () => {
                 onChangeText={(value) => setPassword(value)}
               />
               <TouchableOpacity
-                style={[SectionsLogin.visibleIcon, { fontFamily: "montserrat" }]}
+                style={[SectionsLogin.visibleIcon, { fontFamily: "montserratMeduim" }]}
                 onPress={() => setPasswordVisible(!isPasswordVisible)}
               >
                 {isPasswordVisible ? (
@@ -76,7 +76,7 @@ const CreateAccount = () => {
               <TextInput
                 style={[
                   SectionsLogin.input,
-                  { fontFamily: "montserrat", paddingHorizontal: 0 },
+                  { fontFamily: "montserratMeduim", paddingHorizontal: 0 },
                   Platform.OS === "ios" && styles.iosPlaceholder, // Conditional styling for iOS
                 ]}
                 secureTextEntry={!isPasswordVisibles}
@@ -87,7 +87,7 @@ const CreateAccount = () => {
                 onChangeText={(value) => setconfirmpassword(value)}
               />
               <TouchableOpacity
-                style={[SectionsLogin.visibleIcon, { fontFamily: "montserrat" }]}
+                style={[SectionsLogin.visibleIcon, { fontFamily: "montserratMeduim" }]}
                 onPress={() => setPasswordVisibles(!isPasswordVisibles)}
               >
                 {isPasswordVisibles ? (
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
       },
       iosPlaceholder: {
-        fontFamily: "montserrat", // Ensure the placeholder uses the same font
+        fontFamily: "montserratMeduim", // Ensure the placeholder uses the same font
         color:'#aaa'
       },
 })

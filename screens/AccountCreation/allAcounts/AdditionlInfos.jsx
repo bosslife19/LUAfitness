@@ -29,7 +29,7 @@ const AdditionlInfos = () => {
 const styles = StyleSheet.create({
     desc:{
         color:"#64748B",
-        fontFamily:"montserrat",
+        fontFamily:"montserratMeduim",
         fontWeight:500,
         fontSize:14,
        maxWidth:"82%"
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         color:"#0F172A",
         fontSize:26,
         fontWeight:700,
-        fontFamily:"montserrat",
+        fontFamily:"montserratMeduim",
         marginBottom:10
     },
     input:{
