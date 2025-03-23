@@ -16,7 +16,7 @@ export default function SupportStyle( ) {
       <Text style={styles.headerText}>Preferred support style</Text>
       <Text style={styles.desc}>
       What hopes do you have for your wellness journey?
-        </Text>
+        </Text> 
 
       {/* Horizontal Scrollable Row */}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
