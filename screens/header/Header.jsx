@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     headerText: {
         flex: 0.9,
         fontSize: 16,
-        fontWeight: "600",
+        fontWeight: "700",
         textAlign: "center",
          fontFamily: "montserratMeduim"
     },

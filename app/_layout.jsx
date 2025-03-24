@@ -45,9 +45,9 @@ export default function RootLayout() {
        <Stack screenOptions={{ headerShown: false }}>
         {/* Other Screens */}
         <Stack.Screen name="index" />
-        <Stack.Screen name="(routes)/welcomeScreen" />
+        <Stack.Screen name="(routes)/welcomeScreen/index" />
         <Stack.Screen
-          name="(tabs)/home"
+          name="(tabs)/home.tsx"
           options={{
             headerShown: false,
           }}
@@ -56,8 +56,7 @@ export default function RootLayout() {
 
         {/* <Stack.Screen name="(routes)/successfull-transfer" />
         <Stack.Screen name="(routes)/TrfConfirm" /> */}
-        {/* <Stack.Screen name="(routes)/profile/index" /> */}
-
+ 
        </Stack>
    );
 }

@@ -11,14 +11,12 @@ const Movement = () => {
       {/* Radial Chart */}
       <View style={styles.chartContainer}>
         <ProgressCircle
-          style={styles.chart}
-          progress={percentage}
-          progressColor={"#7F56D9"}
-          backgroundColor="#E5E7EB"
-          strokeWidth={8}
-          startAngle={-Math.PI * 0.75} // Adjust for correct alignment
-          endAngle={Math.PI * 0.75}
-        />
+               style={styles.chart}
+               progress={percentage}
+               progressColor={"#7F56D9"}
+               backgroundColor="#E5E7EB"
+               strokeWidth={8}
+             />
         <View style={styles.chartLabel}>
           <Text style={styles.chartValue}>240%</Text>
          </View>

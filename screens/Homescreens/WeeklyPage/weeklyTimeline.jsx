@@ -5,6 +5,7 @@ import bell from "../../../assets/images/fitness/dumbell.png";
 import Schedule from "../../../assets/images/fitness/minus.png";
 import good from "../../../assets/images/fitness/tick-circle.png";
 import bad from "../../../assets/images/fitness/minus-cirlce.png";
+import { router } from 'expo-router';
 
 // Define the weekly workout data
 const weeklyData = [
@@ -78,12 +79,13 @@ const WeeklyTabPanel = () => {
 
         <View style={styles.buttonContainer}>
         <TouchableOpacity
+        onPress={()=> router.push("/(routes)/workout/Details-page")}
          style={[styles.btns, { backgroundColor: "#8A2BE2" }]}
         >
          <Text style={[styles.button, { color: "#fff" }]}>Go to today</Text>
          </TouchableOpacity> 
                    
-        <TouchableOpacity style={styles.btns}  >
+        <TouchableOpacity style={styles.btns} onPress={()=> router.push("/(routes)/workout/add-workout")} >
          <Text style={styles.button}>Add Workout</Text>
            </TouchableOpacity>
         </View>

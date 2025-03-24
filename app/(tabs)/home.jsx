@@ -82,7 +82,17 @@ export default function HomeScreen() {
 
         {/* Placeholder for Additional Content */}
         <View style={styles.contentContainer}>
-          <ThemedText>Start adding your components here...</ThemedText>
+         <View style={[styles.scrollContainer,{justifyContent:"space-between"}]}>
+                    <Text style={styles.Header}>Progress Overview</Text>
+                     <TouchableOpacity onPress={()=> router.push("/(routes)/progressOverview")}>
+                      <Text style={[
+                         styles.optionText,{color:"#8A2BE2"}
+                        ]}>
+                      See all
+                      </Text>
+                   
+                     </TouchableOpacity>
+         </View>
           {/* Progress Overview */}
           <ProgressOverview/>
         </View>
@@ -96,6 +106,19 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     padding: 16,
     backgroundColor:"#F8FAFC"
+  },
+  Header:{
+    color:"#0F172A",
+    fontFamily:"montserratMeduim",
+    fontSize:16,
+    fontWeight:700
+},
+  optionText: {
+    color: "#0F172A",
+    fontSize: 15,
+    fontFamily: "montserratMeduim",
+    fontWeight: "bold",
+        // textAlign: "center",
   },
   titleContainer: {
     flexDirection: "row",
@@ -114,6 +137,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
+  },
+  scrollContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 10,
   },
   logo: {
     borderRadius: 40,

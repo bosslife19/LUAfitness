@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         paddingVertical: 10,
-      },
+      }, 
       optionButton: {
         width: 140,
         height:"100%",
