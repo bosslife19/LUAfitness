@@ -52,6 +52,12 @@ export default function RootLayout() {
             headerShown: false,
           }}
         />
+        {/* <Stack.Screen
+          name="(tabs)/execrise"
+          options={{
+            headerShown: false,
+          }}
+        /> */}
         {/* Add the Confirmation screen here */}
 
         {/* <Stack.Screen name="(routes)/successfull-transfer" />

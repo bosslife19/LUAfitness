@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 10,
     // elevation: 3,
-    margin: 10,
+    marginHorizontal: 10,
+    marginVertical:8,
     // alignItems: "center",
   },
   title: {
