@@ -25,7 +25,6 @@ export default function HomeScreen() {
     <>
       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
 
-      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {/* Top Section: Title */}
         <View style={styles.titleContainer}>
           <View style={styles.Container}>
@@ -39,12 +38,15 @@ export default function HomeScreen() {
             </View>
           </View>
 
+
           {/* Notification Icon */}
           <TouchableOpacity onPress={()=> router.push("/(routes)/notification")} style={styles.notificationContainer}>
             <Notification />
             <View style={styles.notificationDot} />
           </TouchableOpacity>
         </View>
+        <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+
 
         {/* Motivational Message */}
         <View style={styles.motivationContainer}>
@@ -124,7 +126,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginVertical: 20,
+    marginTop: 20,
+    paddingHorizontal:20,
+    paddingTop:20,
+    backgroundColor:"#F8FAFC"
   },
   flexD:{
     marginTop:5,
@@ -176,7 +181,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F2E6FE",
     paddingVertical: 14,
     paddingHorizontal: 10,
-    marginBottom:20,
+    marginBottom:14,
     borderTopStartRadius:10,
     borderTopEndRadius:10,
 

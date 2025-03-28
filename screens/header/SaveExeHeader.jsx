@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { AntDesign, Feather, MaterialIcons } from '@expo/vector-icons'; // Import Material Icons
 import { useNavigation } from '@react-navigation/native';
-import { router } from 'expo-router';
 
 const Header = ({ name }) => {
     const navigation = useNavigation(); // Get navigation object
@@ -20,9 +19,7 @@ const Header = ({ name }) => {
             </View>
 
            <View style={{flexDirection:"row",gap:10,alignItems:"center"}}>
-            <TouchableOpacity style={styles.favButton} onPress={() => router.push("/(routes)/exercise/execriseSaved")}>
-            <AntDesign name="hearto" size={20} color="black" />
-            </TouchableOpacity>
+            
             <TouchableOpacity>
             <Feather name="search" size={20} color="black" />
             </TouchableOpacity>

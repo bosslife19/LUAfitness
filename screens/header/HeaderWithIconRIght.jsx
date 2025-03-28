@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { AntDesign, Feather, MaterialIcons } from '@expo/vector-icons'; // Import Material Icons
+import { FontAwesome5, MaterialIcons } from '@expo/vector-icons'; // Import Material Icons
 import { useNavigation } from '@react-navigation/native';
 import { router } from 'expo-router';
 
@@ -9,24 +9,13 @@ const Header = ({ name }) => {
 
     return (
         <View style={styles.headerContainer}>
-            {/* Go Back Button */}
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MaterialIcons name="arrow-back-ios" size={21}  color="#0F172A" />
-            </TouchableOpacity>
-
+ 
             {/* Centered Title */}
-            <View>
-                 <Text style={styles.headerText}>{name}</Text>
-            </View>
+            <Text style={styles.headerText}>{name}</Text>
 
-           <View style={{flexDirection:"row",gap:10,alignItems:"center"}}>
-            <TouchableOpacity style={styles.favButton} onPress={() => router.push("/(routes)/exercise/execriseSaved")}>
-            <AntDesign name="hearto" size={20} color="black" />
-            </TouchableOpacity>
-            <TouchableOpacity>
-            <Feather name="search" size={20} color="black" />
-            </TouchableOpacity>
-           </View>
+            <TouchableOpacity onPress={() => router.push("/(routes)/exercise/History")}>
+            <FontAwesome5 name="history" size={14} color="black" />           
+             </TouchableOpacity>
         </View>
     );
 };
@@ -36,7 +25,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingTop: "15%",
-        justifyContent: "space-between",
         paddingVertical: 15,
         paddingHorizontal: 15,
         backgroundColor: "#fff",

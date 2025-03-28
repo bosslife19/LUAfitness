@@ -1,39 +1,27 @@
 import { router } from 'expo-router';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-
+import Header from '../header/SaveExeHeader';
+ 
 const image = require('../../assets/images/fitness/Group 11094.png');
 const flue = require('../../assets/images/fitness/fluent_dumbbell-24-filled.png');
 const fav = require('../../assets/images/fitness/fav.png');
 const sched = require('../../assets/images/fitness/ion_time-sharp.png');
 const location = require('../../assets/images/fitness/location.png');
 
-const ExerciseMainPage = () => {
+const SavedExercise = ({ navigation }) => {
     return (
         <View style={styles.page}>
+          <Header name="Saved exercise" arrow="arrow-back" />
+
             <ScrollView>
                 <View style={styles.container}>
-                    <TouchableOpacity 
-                        onPress={() => router.push({
-                            pathname: '/ProductDetails', 
-                            params: {
-                                title: 'Bicep Curls - Arms',
-                                equipment: 'Dumbbell, Yoga mat',
-                                duration: '30 Minutes',
-                                level: 'Intermediate',
-                                imageId: 'group11094', // Instead of passing the image directly
-                            }
-                        })}
-                    >
-                        <View style={[styles.imageContainer, { position: "relative" }]}>
+                    
+                        <View style={styles.imageContainer}>
                             <Image source={image} resizeMode="cover" style={styles.mainImage} />
-                            <TouchableOpacity style={styles.favButton} onPress={() => router.push("/(routes)/exercise/execriseSaved")}>
-                                <Image source={fav} resizeMode="contain" style={styles.favIcon} />
-                            </TouchableOpacity>
+                            <Image source={fav} resizeMode="contain" style={styles.favIcon} />
                         </View>
-                    </TouchableOpacity>
-
-                    <View style={styles.details}>
+                     <View style={styles.details}>
                         <Text style={styles.title}>Bicep Curls - Arms</Text>
                         <View style={[styles.equipmentContainer, { gap: 20 }]}>
                             <View style={styles.equipmentContainer}>
@@ -57,7 +45,9 @@ const ExerciseMainPage = () => {
 };
 
 const styles = StyleSheet.create({
-    page: { flex: 1 },
+    page: {
+        flex: 1,
+    },
     container: {
         marginVertical: 13,
         marginHorizontal: 20,
@@ -73,17 +63,12 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 250,
     },
-    favButton: {
-        position: 'absolute',
-        top: 10,
-        right: 10,
-        // backgroundColor: 'rgba(255, 255, 255, 0.7)',
-        padding: 5,
-        // borderRadius: 50,
-    },
     favIcon: {
-        width: 25,
-        height: 25,
+        width: '10%',
+        height: '20%',
+        position: 'absolute',
+        top: 0,
+        right: '5%',
     },
     details: {
         paddingHorizontal: 10,
@@ -92,7 +77,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: 'bold',
-        fontFamily: "montserratMedium",
+        fontFamily: "montserratMeduim",
         marginVertical: 10,
     },
     equipmentContainer: {
@@ -101,15 +86,15 @@ const styles = StyleSheet.create({
         paddingVertical: 2,
     },
     icon: {
-        width: 15,
-        height: 15,
-        marginRight: 5,
+        width: 12.27,
+        height: 12.27,
+        marginRight: 4,
     },
     equipmentText: {
-        fontSize: 12,
-        fontFamily: "montserratMedium",
+        fontSize: 11,
+        fontFamily: "montserratMeduim",
         color: '#334155',
     },
 });
 
-export default ExerciseMainPage;
+export default SavedExercise;

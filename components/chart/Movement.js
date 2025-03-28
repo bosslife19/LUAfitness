@@ -1,73 +1,49 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { ProgressCircle } from "react-native-svg-charts";
- 
-const Movement = () => {
-  const percentage = 0.65; // 65% usage
 
+const Movement = ({
+  progress = 0.65, // Default progress (65%)
+  label,
+  progressColor ,
+  bgColor = "#E5E7EB",
+  size,
+  strokeWidth = 5,
+}) => {
   return (
-    <>
-      
-      {/* Radial Chart */}
-      <View style={styles.chartContainer}>
-        <ProgressCircle
-               style={styles.chart}
-               progress={percentage}
-               progressColor={"#7F56D9"}
-               backgroundColor="#E5E7EB"
-               strokeWidth={8}
-             />
-        <View style={styles.chartLabel}>
-          <Text style={styles.chartValue}>240%</Text>
-         </View>
+    <View style={[styles.chartContainer, { width: size, height: size }]}>
+      <ProgressCircle
+        style={{ height: size, width: size }}
+        progress={progress}
+        progressColor={progressColor}
+        backgroundColor={bgColor}
+        strokeWidth={strokeWidth}
+      />
+      <View style={styles.chartLabel}>
+        <Text style={styles.chartValue}>
+          {label ? label : `${Math.round(progress * 100)}%`}
+        </Text>
       </View>
-
-     
-    </>
+    </View>
   );
 };
 
- 
 const styles = StyleSheet.create({
-  
   chartContainer: {
     alignItems: "center",
-    // marginVertical: 20,
-    // position: "relative",
-  },
-  chart: {
-    height: 50,
-    width: 50,
+    justifyContent: "center",
+    position: "relative",
   },
   chartLabel: {
     position: "absolute",
-    // alignItems: "center",
-    // justifyContent: "center",
-    top: "40%",
+    // top: "40%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   chartValue: {
     fontSize: 10,
     fontWeight: "700",
     color: "#1D2939",
-  },
-  chartLabelText: {
-    fontSize: 14,
-    color: "#475467",
-    fontWeight: "500",
-  },
-  footer: {
-    marginTop: 10,
-    alignItems: "center",
-  },
-  footerTitle: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: "#1D2939",
-  },
-  footerText: {
-    fontSize: 14,
-    color: "#475467",
-    textAlign: "center",
   },
 });
 

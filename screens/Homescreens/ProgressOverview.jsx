@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
- import Monthly from '../../components/chart/Monthly';
-import Current from '../../components/chart/current';
+//  import Monthly from '../../components/chart/Monthly';
+// import Current from '../../components/chart/current';
 import Movement from '../../components/chart/Movement';
 
 const ProgressOverview = () => {
@@ -13,23 +13,23 @@ const ProgressOverview = () => {
                     <Text>18 exercises</Text>
                 </View>
                  {/* Chart */}
-                <Monthly/>
-            </View>
+                 <Movement progress={0.45} label="25%" progressColor="#7F56D9" size={60} />
+                 </View>
             <View style={styles.flexD}>
                 <View>
                     <Text>Current streak</Text>
                     <Text>7 days</Text>
                 </View>
                 {/* Chart */}
-                <Current/>
-            </View>
+                <Movement progress={0.45} label="35%" progressColor="#7F56D9" size={60} />
+                </View>
             <View style={styles.flexD}>
                 <View>
                     <Text>Movement Minutes</Text>
                     <Text>18 minutes</Text>
                 </View>
                  {/* Chart */}
-                <Movement/>
+                 <Movement progress={0.45} label="45%" progressColor="#7F56D9" size={60} />
             </View>
         </View>
     );
