@@ -78,8 +78,8 @@ const TraningSchedule = () => {
                 </View>
                 <Image source={front} style={{ width: "30%", height: 105, position: "absolute", right: 0, top: "-50%" }} resizeMode="cover" />
               </View>
-              <TouchableOpacity style={Trans.btnss}>
-                <Text style={Trans.buttons}>Get Started</Text>
+              <TouchableOpacity style={Trans.btnss}   onPress={() => router.push("/(routes)/exercise/Traningsession")}              >
+                <Text style={Trans.buttons}>Start Now</Text>
                 <AntDesign name="arrowright" size={14} color="#0D9488" />
               </TouchableOpacity>
             </ImageBackground>
@@ -100,10 +100,12 @@ const TraningSchedule = () => {
             <View style={Trans.containers}>
               <View style={[Trans.imageContainer, { position: "relative" }]}>
                 <Image source={image} resizeMode="cover" style={Trans.mainImage} />
+                {/* play button */}
                 <TouchableOpacity style={Trans.favButton} onPress={() => router.push("/(routes)/exercise/execriseSaved")}>
                   <Entypo name="controller-play" size={24} color="#fff" />
                 </TouchableOpacity>
               </View>
+              {/* execrise  */}
               <View style={Trans.details}>
                 <Text style={Trans.title}>{selectedData.cardio} - Training</Text>
                 <View style={[Trans.equipmentContainer, { gap: 20 }]}>
@@ -124,9 +126,11 @@ const TraningSchedule = () => {
                   <Text style={Trans.equipmentText}>Stay hydrated before starting</Text>
                 </View>
               </View>
+
+              {/* Button */}
               <View style={Trans.buttonContainer}>
                 <TouchableOpacity
-                  onPress={() => router.push("/(routes)/exercise/Traningsession")}
+                  onPress={() => router.push("/(routes)/exercise/edit")}
                   style={[Trans.btns, { backgroundColor: "#8A2BE2" }]}
                 >
                   <Text style={[Trans.button, { color: "#fff" }]}>Reschedule</Text>

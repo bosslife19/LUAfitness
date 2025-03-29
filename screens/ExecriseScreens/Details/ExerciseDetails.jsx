@@ -1,12 +1,13 @@
-import { MaterialIcons } from '@expo/vector-icons';
+import { Entypo, Feather, MaterialIcons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import Trans from '../../../styles/Traning/TranExec';
 const image = require('../../../assets/images/Rectangle 180.png');
 const flue = require('../../../assets/images/fitness/fluent_dumbbell-24-filled.png');
 const gym = require('../../../assets/images/healthicons_exercise-bicycle (1).png');
 const sched = require('../../../assets/images/fitness/ion_time-sharp.png');
-const location = require('../../../assets/images/fitness/location.png');
+import { useNavigation } from '@react-navigation/native';
 
 const ExerciseDetails = ({img}) => {
     // const {  title, equipment, duration, level } = useLocalSearchParams();
@@ -17,15 +18,31 @@ const ExerciseDetails = ({img}) => {
      non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
      non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.` ;
 
-    const truncatedText = instructions.length > 10 ? `${instructions.slice(0, 10)}...` : instructions;
+    const truncatedText = instructions.length > 100 ? `${instructions.slice(0, 100)}...` : instructions;
+    const navigation = useNavigation(); // Get navigation object
 
     return (
         <View style={{flex:1,backgroundColor:"#F8FAFC"}}>
         <ScrollView style={styles.container}>
              <Image source={image} style={styles.image} resizeMode="cover" />
+            {/* back button */}
              <TouchableOpacity style={{position:"absolute",top:50,left:20}} onPress={() => navigation.goBack()}>
                 <MaterialIcons name="arrow-back-ios" size={21}  color="#fff" />
             </TouchableOpacity>
+            {/* Edit button */}
+            <TouchableOpacity style={{position:"absolute",right:20,top:50,backgroundColor:"#C1C1C133",padding:8,borderRadius:30}}>
+             <Feather name="edit-3" size={12} color="#fff" />
+          </TouchableOpacity>
+          {/* play button */}
+          <TouchableOpacity style={[Trans.favButton,{position:"absolute",right:"50%",top:"20%",backgroundColor:"#C1C1C133",padding:8,borderRadius:30}]}  >
+             <Entypo name="controller-play" size={24} color="#fff" />
+         </TouchableOpacity>
+         {/* Name */}
+         <View style={{position:"absolute",right:"50%",top:50, padding:8,borderRadius:30}}>
+            <Text style={{color:"#fff",letterSpacing:1,fontFamily:"montserratMeduim",}}>Curis</Text>
+         </View>
+
+
             <View style={[styles.detailsContainer,{margin:15}]}>
                <View style={[styles.equipmentContainer, { gap: 6,flexWrap:"wrap" }]}>
                   <View style={styles.equipmentContainer}> 

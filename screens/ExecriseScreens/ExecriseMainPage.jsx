@@ -15,7 +15,7 @@ const ExerciseMainPage = () => {
                 <View style={styles.container}>
                     <TouchableOpacity 
                         onPress={() => router.push({
-                            pathname: '/ProductDetails', 
+                            pathname: '/(routes)/exercise/ProductDetails', 
                             params: {
                                 title: 'Bicep Curls - Arms',
                                 equipment: 'Dumbbell, Yoga mat',

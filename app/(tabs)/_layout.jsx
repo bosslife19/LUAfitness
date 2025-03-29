@@ -49,7 +49,7 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="exercise"
-        options={{
+        options={{ 
           title: 'Exercise',
           tabBarIcon: ({ focused }) => (
             <View
@@ -69,6 +69,39 @@ export default function TabLayout() {
                 focused
                   ? require('../../assets/images/fitness/dummybell.png')
                   : require('../../assets/images/fitness/dummybelloutline.png')
+              }
+              style={{
+                width: 19,
+                height: 19,
+              }}
+            />
+            </View>
+          ),     
+        }}
+      />
+
+<Tabs.Screen
+        name="profile"
+        options={{ 
+          title: 'profile',
+          tabBarIcon: ({ focused }) => (
+            <View
+            style={{
+             
+              justifyContent:"center",
+              alignItems:"center",
+              backgroundColor: focused ? '#F1F5F9' : 'transparent',
+              paddingHorizontal: 20,
+              paddingVertical:10,
+              marginVertical:10,
+              borderRadius: 30, // Optional: add rounded corners for styling
+            }}
+          >
+            <Image
+              source={
+                focused
+                  ? require('../../assets/images/fitness/iconamoon_profile-fill.png')
+                  : require('../../assets/images/fitness/iconamoon_profile-bold.png')
               }
               style={{
                 width: 19,

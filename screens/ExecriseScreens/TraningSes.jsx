@@ -1,39 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
   TouchableOpacity,
   Image,
-  StyleSheet,
   Animated,
+  ScrollView,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import Header from "../header/Header";
+import Transes from "../../styles/Traning/Transes";
+
+const flue = require("../../assets/images/fitness/fluent_dumbbell-24-filled.png");
+const gym = require("../../assets/images/healthicons_exercise-bicycle (1).png");
+const sched = require("../../assets/images/fitness/ion_time-sharp.png");
 
 const AccordionItem = ({ title, imageSource, content }) => {
   const [expanded, setExpanded] = useState(false);
   const [checked, setChecked] = useState(false);
   const [progress] = useState(new Animated.Value(0));
-
-  useEffect(() => {
-    if (expanded) {
-      // Reset progress
-      progress.setValue(0);
-      setChecked(false);
-
-      // Start countdown animation
-      Animated.timing(progress, {
-        toValue: 1,
-        duration: 5000, // 5 seconds countdown
-        useNativeDriver: false,
-      }).start(() => {
-        setChecked(true); // Auto-check the checkbox when countdown ends
-      });
-    }
-  }, [expanded]);
+  const [isRunning, setIsRunning] = useState(false);
 
   const toggleAccordion = () => {
     setExpanded(!expanded);
+    setChecked(false);
+    setIsRunning(false);
+    progress.setValue(0); 
+  };
+
+  const startProgressBar = () => {
+    setIsRunning(true);
+    setChecked(false);
+    progress.setValue(0);
+
+    Animated.timing(progress, {
+      toValue: 1,
+      duration: 300000, // 5 minutes countdown
+      useNativeDriver: false,
+    }).start(() => {
+      setChecked(true);
+      setIsRunning(false);
+    });
   };
 
   const widthInterpolation = progress.interpolate({
@@ -42,14 +49,19 @@ const AccordionItem = ({ title, imageSource, content }) => {
   });
 
   return (
-    <View style={styles.accordionContainer}>
-      {/* Header */}
-      <TouchableOpacity onPress={toggleAccordion} style={styles.header}>
-       <View style={{flexDirection:'row',gap:5}}>
-       {checked && <Ionicons name="checkmark-circle" size={24} color="#0D9488" />}
-       <Text style={styles.headerText}>{title}</Text>
-       </View>
-        <View style={styles.headerRight}>
+    <View style={Transes.accordionContainer}>
+      <TouchableOpacity onPress={toggleAccordion} style={[Transes.header,{backgroundColor:"#fff"}]}>
+        <View style={{ flexDirection: "row", gap: 5 }}>
+       {/* check box */}
+        {checked ? (
+      <Ionicons name="checkmark-circle" size={24} color="#0D9488" />
+       ) : (
+      <MaterialIcons name="radio-button-unchecked" size={24} color="#CBD5E1" />
+        )}        
+      <Text style={Transes.headerText}>{title}</Text>
+        </View>
+        {/* Arrows */}
+        <View style={Transes.headerRight}>
           <Ionicons
             name={expanded ? "chevron-up" : "chevron-down"}
             size={24}
@@ -59,18 +71,46 @@ const AccordionItem = ({ title, imageSource, content }) => {
         </View>
       </TouchableOpacity>
 
-      {/* Content */}
+      {/* image, execrise and contents */}
       {expanded && (
-        <View style={styles.content}>
-          <Image source={imageSource} style={styles.image} />
-          <Text style={styles.contentText}>{content}</Text>
+        <View style={Transes.content}>
+          <Image source={imageSource} style={Transes.image} resizeMode="contain" />
+          <TouchableOpacity style={{position:"absolute",right:20,top:20,backgroundColor:"#C1C1C133",padding:8,borderRadius:30}}>
+         <Feather name="edit-3" size={12} color="#fff" />
+          </TouchableOpacity>
+          <View style={Transes.detailsContainer}>
+            <View style={[Transes.equipmentContainer, { gap: 6, flexWrap: "wrap", paddingVertical: 10 }]}>
+              <View style={Transes.equipmentContainer}>
+                <Image source={flue} resizeMode="contain" style={Transes.icon} />
+                <Text style={Transes.equipmentText}>Dumbbell, mat</Text>
+              </View>
+              <View style={Transes.equipmentContainer}>
+                <Image source={sched} resizeMode="contain" style={Transes.icon} />
+                <Text style={Transes.equipmentText}>5 Minutes</Text>
+              </View>
+              <View style={Transes.equipmentContainer}>
+                <Image source={gym} resizeMode="contain" style={Transes.icon} />
+                <Text style={Transes.equipmentText}>2 sets of 12 reps</Text>
+              </View>
+            </View>
+          </View>
 
-          {/* Loading Bar */}
-          {!checked && (
-            <View style={styles.progressBarContainer}>
-              <Animated.View style={[styles.progressBar, { width: widthInterpolation }]} />
+          <Text style={[Transes.headerText, { paddingVertical: 5, borderTopWidth: 1, borderColor: "#F1F5F9" }]}>Steps</Text>
+          <Text style={Transes.contentText}>{content}</Text>
+
+          {/* progress loading bar */}
+          {isRunning && (
+            <View style={{ marginVertical: 10, borderTopWidth: 1, borderColor: "#F1F5F9", paddingTop: 10 }}>
+              <Text style={Transes.headerText}>Countdown for recovery phases</Text>
+              <View style={Transes.progressBarContainer}>
+                <Animated.View style={[Transes.progressBar, { width: widthInterpolation }]} />
+              </View>
             </View>
           )}
+
+          <TouchableOpacity style={Transes.button} onPress={startProgressBar}>
+            <Text style={Transes.buttonText}>{isRunning ? "Running..." : "Start"}</Text>
+          </TouchableOpacity>
         </View>
       )}
     </View>
@@ -80,85 +120,28 @@ const AccordionItem = ({ title, imageSource, content }) => {
 const TrainingSession = () => {
   return (
     <>
-      <Header name="History" arrow="arrow-back" />
-      <View style={styles.container}>
-        <AccordionItem
-          title="Warm-up (3-5 mins) "
-          imageSource={require("../../assets/images/Rectangle 180.png")}
-          content="This is the first item's content."
-        />
-        <AccordionItem
-          title="Second Item"
-          imageSource={require("../../assets/images/Rectangle 180.png")}
-          content="This is the second item's content."
-        />
-        <AccordionItem
-          title="Third Item"
-          imageSource={require("../../assets/images/Rectangle 180.png")}
-          content="This is the third item's content."
-        />
-      </View>
+      <Header name="Traning session" arrow="arrow-back" />
+      <ScrollView>
+        <View style={Transes.container}>
+          <AccordionItem
+            title="Warm-up (3-5 mins) "
+            imageSource={require("../../assets/images/Rectangle 180.png")}
+            content="Prepare your body with a proper warm-up session for 5 minutes."
+          />
+          <AccordionItem
+            title="Strength Training"
+            imageSource={require("../../assets/images/Rectangle 180.png")}
+            content="Follow the strength training routine with controlled reps and sets."
+          />
+          <AccordionItem
+            title="Cool Down (5 mins)"
+            imageSource={require("../../assets/images/Rectangle 180.png")}
+            content="End the session with a cooldown to relax your muscles."
+          />
+        </View>
+      </ScrollView>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 20,
-    paddingHorizontal: 20,
-  },
-  accordionContainer: {
-    marginBottom: 10,
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    overflow: "hidden",
-    elevation: 3,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 5,
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 15,
-    backgroundColor: "#f8f9fa",
-  },
-  headerText: {
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  headerRight: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  content: {
-    padding: 10,
-  },
-  image: {
-    width: "100%",
-    height: 80,
-    borderRadius: 8,
-    marginBottom: 5,
-  },
-  contentText: {
-    fontSize: 14,
-    color: "#333",
-  },
-  progressBarContainer: {
-    width: "100%",
-    height: 7,
-    backgroundColor: "#F1F5F9",
-    borderRadius: 5,
-    overflow: "hidden",
-    marginTop: 5,
-  },
-  progressBar: {
-    height: "100%",
-    // paddingVertical:12,
-    backgroundColor: "#0D9488",
-  },
-});
 
 export default TrainingSession;

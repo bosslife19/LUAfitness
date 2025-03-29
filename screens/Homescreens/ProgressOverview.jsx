@@ -13,7 +13,7 @@ const ProgressOverview = () => {
                     <Text>18 exercises</Text>
                 </View>
                  {/* Chart */}
-                 <Movement progress={0.45} label="25%" progressColor="#7F56D9" size={60} />
+                 <Movement progress={0.45} label="25%" progressColor="#7F56D9" size={40} />
                  </View>
             <View style={styles.flexD}>
                 <View>
@@ -21,7 +21,7 @@ const ProgressOverview = () => {
                     <Text>7 days</Text>
                 </View>
                 {/* Chart */}
-                <Movement progress={0.45} label="35%" progressColor="#7F56D9" size={60} />
+                <Movement progress={0.45} label="35%" progressColor="#7F56D9" size={40} />
                 </View>
             <View style={styles.flexD}>
                 <View>
@@ -29,7 +29,7 @@ const ProgressOverview = () => {
                     <Text>18 minutes</Text>
                 </View>
                  {/* Chart */}
-                 <Movement progress={0.45} label="45%" progressColor="#7F56D9" size={60} />
+                 <Movement progress={0.45} label="45%" progressColor="#7F56D9" size={40} />
             </View>
         </View>
     );

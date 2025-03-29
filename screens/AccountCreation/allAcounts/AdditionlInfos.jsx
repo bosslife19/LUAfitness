@@ -15,13 +15,13 @@ const AdditionlInfos = () => {
              <Text style={[styles.desc,{marginTop:"10%",fontWeight:"700",color:"#0F172A"}]}>
              Is there anything else about your health that would help us support your movement journey?
              </Text>
-        <TextInput
-                     keyboardType="default"
-                        placeholder="Write your thoughts"
-                        style={styles.input}
-                        multiline={true} // Enables multi-line input
-                        numberOfLines={4} // Sets the default number of visible lines
-           />       
+            <TextInput
+               keyboardType="default"
+               placeholder="Write your thoughts"
+               style={styles.input}
+               multiline={true} // Enables multi-line input
+               numberOfLines={4} // Sets the default number of visible lines
+             />       
       </View>
     );
 }

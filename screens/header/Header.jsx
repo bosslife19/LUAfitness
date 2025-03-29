@@ -3,14 +3,14 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; // Import Material Icons
 import { useNavigation } from '@react-navigation/native';
 
-const Header = ({ name }) => {
+const Header = ({ name, backgroundColor = "#fff" }) => {
     const navigation = useNavigation(); // Get navigation object
 
     return (
-        <View style={styles.headerContainer}>
+        <View style={[styles.headerContainer, { backgroundColor }]}>
             {/* Go Back Button */}
             <TouchableOpacity onPress={() => navigation.goBack()}>
-                <MaterialIcons name="arrow-back-ios" size={21}  color="#0F172A" />
+                <MaterialIcons name="arrow-back-ios" size={21} color="#0F172A" />
             </TouchableOpacity>
 
             {/* Centered Title */}
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
         paddingTop: "15%",
         paddingVertical: 15,
         paddingHorizontal: 15,
-        backgroundColor: "#fff",
         borderBottomWidth: 1,
         borderColor: "#F1F5F9",
     },
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "700",
         textAlign: "center",
-         fontFamily: "montserratMeduim"
+        fontFamily: "montserratMeduim"
     },
 });
 

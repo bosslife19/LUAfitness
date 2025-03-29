@@ -43,7 +43,7 @@ const Trans = StyleSheet.create({
         backgroundColor: 'rgba(255, 255, 255, 0.7)',
         padding: 11,
         borderRadius: 50,
-        opacity:0.5
+        // opacity:0.7
     },
     Header:{
         color:"#0F172A",
