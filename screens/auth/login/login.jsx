@@ -146,8 +146,8 @@ export default function LoginScreen() {
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1, // Allows content to grow and scroll
-          paddingBottom: "21%",
-          height: "110%",
+          // paddingBottom: "21%",
+          height: "100%",
           backgroundColor:"#F7EEFD"
         }}
         keyboardShouldPersistTaps="handled" // Ensures keyboard doesn't block input

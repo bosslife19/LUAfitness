@@ -46,12 +46,7 @@ export default function RootLayout() {
         {/* Other Screens */}
         <Stack.Screen name="index" />
         <Stack.Screen name="(routes)/welcomeScreen/index" />
-        <Stack.Screen
-          name="(tabs)/home.tsx"
-          options={{
-            headerShown: false,
-          }}
-        />
+        
         {/* <Stack.Screen
           name="(tabs)/execrise"
           options={{

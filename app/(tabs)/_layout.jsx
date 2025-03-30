@@ -47,6 +47,39 @@ export default function TabLayout() {
           ),     
         }}
       />
+       <Tabs.Screen
+        name="chat"
+        options={{ 
+          title: 'Chat',
+          tabBarIcon: ({ focused }) => (
+            <View
+            style={{
+             
+              justifyContent:"center",
+              alignItems:"center",
+              backgroundColor: focused ? '#F1F5F9' : 'transparent',
+              paddingHorizontal: 20,
+              paddingVertical:10,
+              marginVertical:10,
+              borderRadius: 30, // Optional: add rounded corners for styling
+            }}
+          >
+            <Image
+              source={
+                focused
+                  ? require('../../assets/images/account/Frame 238792.png')
+                  : require('../../assets/images/account/Group 238389.png')
+              }
+              style={{
+                width: 19,
+                height: 19,
+              }}
+            />
+            </View>
+          ),     
+        }}
+      />
+
       <Tabs.Screen
         name="exercise"
         options={{ 
@@ -69,6 +102,39 @@ export default function TabLayout() {
                 focused
                   ? require('../../assets/images/fitness/dummybell.png')
                   : require('../../assets/images/fitness/dummybelloutline.png')
+              }
+              style={{
+                width: 19,
+                height: 19,
+              }}
+            />
+            </View>
+          ),     
+        }}
+      />
+
+<Tabs.Screen
+        name="cycle"
+        options={{ 
+          title: 'Cycle',
+          tabBarIcon: ({ focused }) => (
+            <View
+            style={{
+             
+              justifyContent:"center",
+              alignItems:"center",
+              backgroundColor: focused ? '#F1F5F9' : 'transparent',
+              paddingHorizontal: 20,
+              paddingVertical:10,
+              marginVertical:10,
+              borderRadius: 30, // Optional: add rounded corners for styling
+            }}
+          >
+            <Image
+              source={
+                focused
+                  ? require('../../assets/images/account/drop.png')
+                  : require('../../assets/images/account/healthicons_blood-drop-outline-24px.png')
               }
               style={{
                 width: 19,
