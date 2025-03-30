@@ -69,7 +69,7 @@ export default function OTPMainEmail({ onNext }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Verification</Text>
-      <Text style={{color:"#475569", fontWeight:500,fontFamily:"montserratMeduim",fontSize:14,textAlign:"center",paddingHorizontal:20}}>Enter the 6-digit code we sent to your email</Text>
+      <Text style={{color:"#475569", fontWeight:500,fontFamily:"montserratMeduim",fontSize:14,textAlign:"center",paddingHorizontal:20}}>Enter the 3-digit code we sent to your email (for now just enter <Text style={{fontWeight:'700'}}>123</Text>)</Text>
      
       <View style={styles.otpContainer}>
         {otp.map((digit, index) => (
@@ -81,6 +81,7 @@ export default function OTPMainEmail({ onNext }) {
             onChangeText={(text) => handleChange(text, index)}
             maxLength={1}
             keyboardType="numeric"
+
           />
         ))}
       </View>
