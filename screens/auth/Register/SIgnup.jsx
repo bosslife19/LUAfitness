@@ -152,6 +152,7 @@ export default function SignupScreen() {
                paddingHorizontal:10,
               //   lineHeight: 43.95,
               fontWeight: "500",
+              marginVertical:20
             }
           ]}>
             Create an account and start transforming your health today          
@@ -197,7 +198,7 @@ export default function SignupScreen() {
               )}
             </TouchableOpacity>
  
-             <View style={{paddingVertical:20}}>
+             {/* <View style={{paddingVertical:20}}>
               <Text style={{textAlign:"center",color:"#334155",fontFamily:"montserratMeduim", fontWeight:600, fontSize:14}}>Or Sign up With</Text>
               <View style={{flexDirection:"row",gap:10, alignItems:"center",marginTop:20}}>
               <TouchableOpacity>
@@ -217,7 +218,7 @@ export default function SignupScreen() {
               />
                 </TouchableOpacity>
               </View>
-             </View>
+             </View> */}
             <View style={SectionsLogin.signupRedirect}>
               <Text
                 style={{

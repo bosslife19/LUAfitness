@@ -115,7 +115,7 @@ import { StyleSheet } from "react-native";
     signupRedirect: {
       flexDirection: "row",
       justifyContent: "center",
-      marginTop: 0,
+      marginTop: 10,
       marginBottom: 20,
     },
     signUpText: {
