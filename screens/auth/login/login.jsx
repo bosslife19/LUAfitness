@@ -63,47 +63,49 @@ export default function LoginScreen() {
         text2: "Please fill in all the fields to continue.",
       });
     }
+    return router.push("/(routes)/account-creation");
     setButtonSpinner(true);
     setIsButtonEnabled(false); // Disable button when clicked
-    try {
-      const response = await axios.post(`${baseUrl}/api/login`, {
-        email,
-        password,
-      });
+    
+    // try {
+    //   const response = await axios.post(`${baseUrl}/api/login`, {
+    //     email,
+    //     password,
+    //   });
 
-      if (response.data.status) {
-        await AsyncStorage.clear();
-        await AsyncStorage.setItem("authToken", response.data.token);
-        // setUserDetails(response.data.user);
-        if(response.data.user.email_verified_at==null){
-          Toast.show({
-            type:'error',
-            text1:'Unverified Account',
-            text2:'Please Verify your email to continue'
-          })
-        }else{
-          await AsyncStorage.setItem('loggedIn', 'yes');
-          Toast.show({
-            type: "success",
-            text1: "Login Successful",
-            text2: "Welcome back!",
-          });
-          router.push("/(tabs)/home");
-        }
-        setButtonSpinner(false);
-      }
-      setButtonSpinner(false);
-    } catch (error) {
-      setButtonSpinner(false);
-      Toast.show({
-        type: "error",
-        text1: "Invalid Credentials",
-        text2: "Please provide the correct credentials to login.",
-      });
-    } finally {
-      setButtonSpinner(false);
-      setIsButtonEnabled(email.trim() !== "" && password.trim() !== ""); // Re-enable button if fields are filled
-    }
+    //   if (response.data.status) {
+    //     await AsyncStorage.clear();
+    //     await AsyncStorage.setItem("authToken", response.data.token);
+    //     // setUserDetails(response.data.user);
+    //     if(response.data.user.email_verified_at==null){
+    //       Toast.show({
+    //         type:'error',
+    //         text1:'Unverified Account',
+    //         text2:'Please Verify your email to continue'
+    //       })
+    //     }else{
+    //       await AsyncStorage.setItem('loggedIn', 'yes');
+    //       Toast.show({
+    //         type: "success",
+    //         text1: "Login Successful",
+    //         text2: "Welcome back!",
+    //       });
+    //       router.push("/(tabs)/home");
+    //     }
+    //     setButtonSpinner(false);
+    //   }
+    //   setButtonSpinner(false);
+    // } catch (error) {
+    //   setButtonSpinner(false);
+    //   Toast.show({
+    //     type: "error",
+    //     text1: "Invalid Credentials",
+    //     text2: "Please provide the correct credentials to login.",
+    //   });
+    // } finally {
+    //   setButtonSpinner(false);
+    //   setIsButtonEnabled(email.trim() !== "" && password.trim() !== ""); // Re-enable button if fields are filled
+    // }
   };
 
   useEffect(() => {
@@ -287,7 +289,7 @@ export default function LoginScreen() {
               </Text>
             </TouchableOpacity>
 
-             <View style={{paddingVertical:20}}>
+             {/* <View style={{paddingVertical:20}}>
               <Text style={{textAlign:"center",color:"#334155",fontFamily:"montserratMeduim", fontWeight:600, fontSize:14}}>Or Sign up With</Text>
               <View style={{flexDirection:"row",gap:10, alignItems:"center",marginTop:20}}>
               <TouchableOpacity>
@@ -307,7 +309,7 @@ export default function LoginScreen() {
               />
                 </TouchableOpacity>
               </View>
-             </View>
+             </View> */}
             <View style={SectionsLogin.signupRedirect}>
               <Text
                 style={{
