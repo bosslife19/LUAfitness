@@ -23,7 +23,7 @@ const TrackExecrise = () => {
     return (
         <>
        <Header name="Track your exercise" arrow="arrow-back" />
-       <View style={{height:"87%",display:"flex",justifyContent:"space-between", flexDirection:"column"}}>
+       <View style={{height:"79%",display:"flex",justifyContent:"space-between", flexDirection:"column",marginBottom:"10%"}}>
        <View style={[Transes.container,{backgroundColor:"#F1F5F9"}]}>
        <View style={{backgroundColor:"#fff",padding:10,borderTopRadius:15,marginTop:5}}>
          <Text style={[Transes.headerText,{ marginBottom:10 }]}>Exercise type</Text>

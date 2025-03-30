@@ -2,5 +2,5 @@
  import React from 'react'
   export default function index() {
     
-     return <Redirect href={"/(routes)/onboarding"} />;
+     return <Redirect href={"/(routes)/get-started"} />;
 }

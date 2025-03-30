@@ -9,7 +9,7 @@ const Subscription = () => {
     
     return (
         <View style={{}}>
-             <View style={[styles.headerContainer]}>
+            <View style={[styles.headerContainer]}>
             {/* Go Back Button */}
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <MaterialIcons name="arrow-back-ios" size={21} color="#000" />
@@ -17,7 +17,22 @@ const Subscription = () => {
 
             {/* Centered Title */}
             <Text style={styles.headerText}>Subscription</Text>
-        </View>
+           </View>
+           <Text>Select your plan to get connected</Text>
+           <Text>
+           Join a community built on encouragement and understanding
+           </Text>
+           <View>
+            <Text>
+                Basic plan
+            </Text>
+            <Text>Free</Text>
+            <View>
+                <View>
+                    <Text>Personalized Training Plans</Text>
+                </View>
+            </View>
+           </View>
         {/* <Image source={img} /> */}
         </View>
     );

@@ -1,46 +1,62 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { ProgressCircle } from "react-native-svg-charts";
+// import React from "react";
+// import { View, Text, StyleSheet } from "react-native";
+// import Svg, { Circle } from "react-native-svg";
 
-const DetailsChart = () => {
-  const percentage = 0.25; // 25% usage
+// const DetailsChart = () => {
+//   const percentage = 0.25; // 25% usage
+//   const radius = 25;
+//   const strokeWidth = 8;
+//   const circumference = 2 * Math.PI * radius;
+//   const progress = circumference * (1 - percentage); // Calculate progress based on percentage
 
-  return (
-    <View style={styles.chartContainer}>
-      {/* Full Circle Progress Chart */}
-      <ProgressCircle
-        style={styles.chart}
-        progress={percentage}
-        progressColor={"#7F56D9"}
-        backgroundColor="#E5E7EB"
-        strokeWidth={8}
-      />
-      <View style={styles.chartLabel}>
-        <Text style={styles.chartValue}>20%</Text>
-      </View>
-    </View>
-  );
-};
+//   return (
+//     <View style={styles.chartContainer}>
+//       <Svg height="60" width="60" viewBox="0 0 60 60">
+//         {/* Background Circle */}
+//         <Circle
+//           cx="30"
+//           cy="30"
+//           r={radius}
+//           stroke="#E5E7EB"
+//           strokeWidth={strokeWidth}
+//           fill="none"
+//         />
+//         {/* Progress Circle */}
+//         <Circle
+//           cx="30"
+//           cy="30"
+//           r={radius}
+//           stroke="#7F56D9"
+//           strokeWidth={strokeWidth}
+//           fill="none"
+//           strokeDasharray={circumference}
+//           strokeDashoffset={progress}
+//           strokeLinecap="round"
+//         />
+//       </Svg>
+//       <View style={styles.chartLabel}>
+//         <Text style={styles.chartValue}>25%</Text>
+//       </View>
+//     </View>
+//   );
+// };
 
-const styles = StyleSheet.create({
-  chartContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  chart: {
-    height: 50, // Increase size for better visibility
-    width: 50,
-  },
-  chartLabel: {
-    position: "absolute",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  chartValue: {
-    fontSize: 14,
-    fontWeight: "700",
-    color: "#1D2939",
-  },
-});
+// const styles = StyleSheet.create({
+//   chartContainer: {
+//     alignItems: "center",
+//     justifyContent: "center",
+//     position: "relative",
+//   },
+//   chartLabel: {
+//     position: "absolute",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+//   chartValue: {
+//     fontSize: 14,
+//     fontWeight: "700",
+//     color: "#1D2939",
+//   },
+// });
 
-export default DetailsChart;
+// export default DetailsChart;

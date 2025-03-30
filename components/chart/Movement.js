@@ -1,24 +1,44 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { ProgressCircle } from "react-native-svg-charts";
+import Svg, { Circle } from "react-native-svg";
 
 const Movement = ({
   progress = 0.65, // Default progress (65%)
   label,
-  progressColor ,
+  progressColor = "#7F56D9",
   bgColor = "#E5E7EB",
-  size,
+  size = 50,
   strokeWidth = 5,
 }) => {
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const progressOffset = circumference * (1 - progress); // Calculate progress offset
+
   return (
     <View style={[styles.chartContainer, { width: size, height: size }]}>
-      <ProgressCircle
-        style={{ height: size, width: size }}
-        progress={progress}
-        progressColor={progressColor}
-        backgroundColor={bgColor}
-        strokeWidth={strokeWidth}
-      />
+      <Svg height={size} width={size} viewBox={`0 0 ${size} ${size}`}>
+        {/* Background Circle */}
+        <Circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke={bgColor}
+          strokeWidth={strokeWidth}
+          fill="none"
+        />
+        {/* Progress Circle */}
+        <Circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke={progressColor}
+          strokeWidth={strokeWidth}
+          fill="none"
+          strokeDasharray={circumference}
+          strokeDashoffset={progressOffset}
+          strokeLinecap="round"
+        />
+      </Svg>
       <View style={styles.chartLabel}>
         <Text style={styles.chartValue}>
           {label ? label : `${Math.round(progress * 100)}%`}
@@ -36,7 +56,6 @@ const styles = StyleSheet.create({
   },
   chartLabel: {
     position: "absolute",
-    // top: "40%",
     alignItems: "center",
     justifyContent: "center",
   },
