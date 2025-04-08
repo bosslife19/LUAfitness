@@ -35,6 +35,13 @@ const Transes = StyleSheet.create({
       borderRadius: 30,
       alignItems: "center",
     },
+    buttoned: {
+      marginTop:13,
+      backgroundColor: "#8A2BE2",
+      padding: 15,
+      borderRadius: 30,
+      alignItems: "center",
+    },
     buttonText: {
       color: "#fff",
       fontSize: 14,

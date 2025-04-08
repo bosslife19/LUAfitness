@@ -39,7 +39,7 @@ export default function Profile() {
           <View style={{width:49,borderBottomWidth:2,borderLeftWidth:2,borderTopWidth:2,borderColor:"#fff",borderRadius:40}}>
           <Image source={logos} style={{width:45,height:45,}} />
           </View>
-            <Text style={[styles.imageText,{color:"#fff",fontSize:14,fontWeight:500}]}>Oliver Sandra</Text>
+            <Text style={[styles.imageText,{color:"#fff",fontSize:14,fontWeight:500,marginTop:7}]}>Oliver Sandra</Text>
             <Text style={[styles.imageText,{color:"#CBD5E1",fontSize:14,fontWeight:500}]}>Olivia2com@gmail.com</Text>
             </View>            
            <TouchableOpacity >
