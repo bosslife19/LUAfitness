@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import axiosClient from "../../../../axiosClient";
 
 export default function OptionDetails2({ onNext }) {
   const [selectedCycle, setSelectedCycle] = useState(null);
@@ -15,10 +16,22 @@ export default function OptionDetails2({ onNext }) {
     onNext();
   };
 
-  const handleProceed =()=>{
+  const handleProceed =async()=>{
 
     // if sucessfull it will go to the next page
-    onNext(); 
+    try {
+      const res = await axiosClient.post('/register', {
+        cycleBehaviour: selectedCycle
+      })
+      if(res.data.status){
+        onNext(); 
+      }
+     
+
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
   return (
     <View style={styles.container}>

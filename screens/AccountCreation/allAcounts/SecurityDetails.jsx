@@ -33,6 +33,7 @@ import SectionsLogin from "../../../styles/Login/Login.styles";
 import MailIcon from "../../../assets/images/smstracking";
 import Apple from "../../../assets/images/apple";
 import Facebook from "../../../assets/images/Facebook";
+import axiosClient from "../../../axiosClient";
 // import SpinningLogo from "@/LoadingScreen/SpinningLogo";
 
 export default function SecurityDetails({onNext}) {
@@ -46,10 +47,25 @@ export default function SecurityDetails({onNext}) {
 
  
 
-  const handleSignIn =()=>{
+  const handleSignIn =async()=>{
 
-    // if sucessfull it will go to the next page
-    onNext(); 
+    if(password&&confirmpassword){
+      if(password!== confirmpassword){
+        return Alert.alert("Passwords don't match", 'Confirm password has to be the same with password')
+      }
+      try {
+        const res = await axiosClient.post('/register', {password});
+        if(res.data.status){
+          return onNext(); 
+        }
+        throw new Error('Error ocuured')
+        
+      } catch (error) {
+        console.log(error)
+      }
+      
+    }
+    
   }
 
   const handleSkip =() =>{

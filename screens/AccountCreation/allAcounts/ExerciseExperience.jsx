@@ -6,10 +6,11 @@ import Dance from "../../../assets/images/fitness/mdi_human-female-dance.png"
 import Yoga from "../../../assets/images/fitness/mdi_yoga.png"
 import TeamSport from "../../../assets/images/fitness/ri_team-fill.png"
 import Others from "../../../assets/images/fitness/mdi_dance-ballroom.png"
+import SectionsLogin from "../../../styles/Login/Login.styles";
 
 
 
-export default function ExerciseExperience( ) {
+export default function ExerciseExperience({onNext} ) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
 
   const cycleOptions = [
@@ -22,6 +23,9 @@ export default function ExerciseExperience( ) {
 
    ];
 
+   const handleNext = ()=>{
+    onNext()
+   }
   const toggleSelection = (value) => {
     if (selectedSymptoms.includes(value)) {
       // Remove the symptom if already selected
@@ -33,6 +37,7 @@ export default function ExerciseExperience( ) {
   };
 
   return (
+    <View>
     <View style={styles.container}>
       <Text style={styles.headerText}>Exercise experience types</Text>
       <Text style={styles.desc}>
@@ -69,6 +74,20 @@ export default function ExerciseExperience( ) {
           </TouchableOpacity>
         ))}
       </View>
+    </View>
+    <TouchableOpacity
+        style={[SectionsLogin.loginButton]}
+        onPress={handleNext}
+      >
+        <Text
+          style={[
+            SectionsLogin.loginButtonText,
+            { fontFamily: "montserratMeduim" },
+          ]}
+        >
+          Proceed
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }

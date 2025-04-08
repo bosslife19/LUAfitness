@@ -53,12 +53,30 @@ export default function SignupScreen() {
   }, [email]);
 
   const handleSignUp = async () => {
-    setButtonSpinner(false);
-    setTimeout(() => {
+    setButtonSpinner(true);
+    
+    try {
+     
+      const res = await axios.post(`${process.env.EXPO_PUBLIC_BASE_URL}/api/register-email`,{emailFirst:email});
+      if(res.data.status){
+        
+        await AsyncStorage.clear();
+        await AsyncStorage.setItem("authToken", res.data.token);
+        setTimeout(() => {
+        
+          setIsButtonEnabled(true);
+          router.push("/(routes)/account-creation");
+        }, 2000);
+        return;
+      }
+      throw new Error('Sign up failed')
+     
+    } catch (error) {
+      console.log(error)
+    }finally{
       setButtonSpinner(false);
-      setIsButtonEnabled(true);
-      router.push("/(routes)/account-creation");
-    }, 2000);
+    }
+    
    };
 
   useEffect(() => {

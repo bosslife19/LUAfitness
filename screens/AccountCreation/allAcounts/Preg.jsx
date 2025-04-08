@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import RNPickerSelect from "react-native-picker-select";
+import SectionsLogin from '../../../styles/Login/Login.styles';
 
-const Preg = () => {
+const Preg = ({onNext}) => {
       const [Preg, setPreg] = useState("");
-    
+    const handleNext = ()=>{
+      onNext()
+    }
     return (
-        <View style={{marginBottom:"30%"}}>
+        <View >
             <Text style={styles.TitleHeader}>
             Pregnancy
             </Text>
@@ -28,7 +31,20 @@ const Preg = () => {
           placeholder={{ label: "Select your status", value: null ,color:"#94A3B8"}}
           style={pickerStyles}
         />
-      </View>        
+      </View>    
+      <TouchableOpacity
+                    style={[SectionsLogin.loginButton]}
+                    onPress={handleNext}
+                  >
+                    <Text
+                      style={[
+                        SectionsLogin.loginButtonText,
+                        { fontFamily: "montserratMeduim" },
+                      ]}
+                    >
+                      Proceed
+                    </Text>
+                  </TouchableOpacity>    
       </View>
     );
 }

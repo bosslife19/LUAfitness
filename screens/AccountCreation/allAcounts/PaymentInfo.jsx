@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Platform } from "react-native";
+import { View, Text, TextInput, StyleSheet, Platform, TouchableOpacity } from "react-native";
 import SectionsLogin from "../../../styles/Login/Login.styles";
 
-export default function PaymentInfo() {
+export default function PaymentInfo({onNext}) {
   const [cardNumber, setCardNumber] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
   const [cvv, setCvv] = useState("");
@@ -10,7 +10,14 @@ export default function PaymentInfo() {
   const [cardName, setCardName] = useState("");
   const [billingAddress, setBillingAddress] = useState("");
 
+  const handleNext = ()=>{
+    onNext()
+  }
+
   return (
+    <View>
+
+    
     <View style={styles.container}>
       <Text style={styles.header}>Payment Information</Text>
 
@@ -86,6 +93,20 @@ export default function PaymentInfo() {
           onChangeText={setBillingAddress}
         />
       </View>
+    </View>
+    <TouchableOpacity
+                    style={[SectionsLogin.loginButton]}
+                    onPress={handleNext}
+                  >
+                    <Text
+                      style={[
+                        SectionsLogin.loginButtonText,
+                        { fontFamily: "montserratMeduim" },
+                      ]}
+                    >
+                      Proceed
+                    </Text>
+                  </TouchableOpacity>
     </View>
   );
 }

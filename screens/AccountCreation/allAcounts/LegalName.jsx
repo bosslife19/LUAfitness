@@ -1,7 +1,25 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import SectionsLogin from '../../../styles/Login/Login.styles';
+import axiosClient from '../../../axiosClient';
 
-const LegalName = () => {
+const LegalName = ({onNext}) => {
+    const [legalName, setLeglName] = useState('')
+    const handleNext = async()=>{
+        try {
+            if(!legalName){
+                return Alert.alert('Field is required', 'Please input your legal name to continue')
+            }
+            const res = await axiosClient.post("/register",{legalName});
+            if(res.data.status){
+               return onNext();
+            }
+            Alert.alert('Error', 'Check your internet connection')
+        } catch (error) {
+            console.log(error)
+        }
+        
+    }
     return (
         <View>
             <Text style={styles.TitleHeader}>
@@ -11,7 +29,23 @@ const LegalName = () => {
             <Text style={styles.desc}>
             Input name as it appears on your official documents
             </Text>
-            <TextInput placeholder="Full name" style={styles.input} />
+            <TextInput placeholder="Full name" style={styles.input} onChangeText={(val)=>setLeglName(val)}/>
+            <TouchableOpacity
+                          style={[SectionsLogin.loginButton,
+                           ]}
+                       onPress={handleNext}
+                          >
+                        
+                            <Text
+                              style={[
+                                SectionsLogin.loginButtonText,
+                                { fontFamily: "montserratMeduim" },
+                              ]}
+                            >
+                             Proceed
+                            </Text>
+                          
+                        </TouchableOpacity>
         </View>
     );
 }

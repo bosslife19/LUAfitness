@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import SectionsLogin from "../../../styles/Login/Login.styles";
  
  
-export default function DailyActivity( ) {
+export default function DailyActivity( {onNext}) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
 
   const cycleOptions = [
@@ -23,7 +24,11 @@ export default function DailyActivity( ) {
     }
   };
 
+  const handleNext = ()=>{
+    onNext()
+  }
   return (
+    <View>
     <View style={styles.container}>
       <Text style={styles.headerText}>Daily activity level</Text>
       <Text style={styles.desc}>
@@ -65,6 +70,20 @@ export default function DailyActivity( ) {
           </TouchableOpacity>
         ))}
       </View>
+    </View>
+    <TouchableOpacity
+        style={[SectionsLogin.loginButton]}
+        onPress={handleNext}
+      >
+        <Text
+          style={[
+            SectionsLogin.loginButtonText,
+            { fontFamily: "montserratMeduim" },
+          ]}
+        >
+          Proceed
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }

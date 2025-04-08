@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // Import Ionicons for checkbox
+import SectionsLogin from "../../../styles/Login/Login.styles";
 
-const Aggrement = () => {
+const Aggrement = ({onNext}) => {
   const [selectedCycle, setSelectedCycle] = useState(false);
 
   const toggleCheckbox = () => {
     setSelectedCycle(!selectedCycle);
   };
-
+const handleNext = ()=>{
+  onNext()
+}
   return (
-    <View style={styles.container}>
+    <View>
+ <View style={styles.container}>
       <Text style={styles.TitleHeader}>
       Waiver, Release and Indemnification Agreement
       </Text>
@@ -25,6 +29,21 @@ const Aggrement = () => {
         <Text style={styles.checkboxText}>I understand and consent to participation</Text>
       </TouchableOpacity>
     </View>
+    <TouchableOpacity
+                    style={[SectionsLogin.loginButton]}
+                    onPress={handleNext}
+                  >
+                    <Text
+                      style={[
+                        SectionsLogin.loginButtonText,
+                        { fontFamily: "montserratMeduim" },
+                      ]}
+                    >
+                      Proceed
+                    </Text>
+                  </TouchableOpacity>
+    </View>
+   
   );
 };
 

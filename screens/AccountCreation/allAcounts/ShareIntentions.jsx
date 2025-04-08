@@ -1,7 +1,25 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import SectionsLogin from '../../../styles/Login/Login.styles';
+import { useRequest } from '../../../hooks/useRequest';
 
-const ShareIntentions = () => {
+const ShareIntentions = ({onNext}) => {
+    const [intentions, setIntentions] = useState('')
+    const { makeRequest } = useRequest();
+    const handleNext = async()=>{
+        if(!intentions){
+            return Alert.alert('Required', 'Please share your fitness intentions with us');
+        }
+        const {response, error} = await makeRequest('/register', {intentions});
+        
+        if(response){
+            onNext()
+        }
+        if(error){
+            console.log(error)
+        }
+
+    }
     return (
         <View>
             <Text style={styles.TitleHeader}>
@@ -16,7 +34,24 @@ const ShareIntentions = () => {
                 style={styles.input}
                 multiline={true} // Enables multi-line input
                 numberOfLines={4} // Sets the default number of visible lines
+                onChangeText={val=>setIntentions(val)}
             />
+             <TouchableOpacity
+                                                  style={[SectionsLogin.loginButton,
+                                                   ]}
+                                               onPress={handleNext}
+                                                  >
+                                                
+                                                    <Text
+                                                      style={[
+                                                        SectionsLogin.loginButtonText,
+                                                        { fontFamily: "montserratMeduim" },
+                                                      ]}
+                                                    >
+                                                     Proceed
+                                                    </Text>
+                                                  
+                                                </TouchableOpacity>
         </View>
     );
 }

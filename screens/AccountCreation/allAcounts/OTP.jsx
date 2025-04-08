@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
  
@@ -31,7 +32,8 @@ export default function OTPMainEmail({ onNext }) {
     }
   };
 
-  const handleVerify = () => {
+  const handleVerify = async() => {
+
     if (otp.includes('')) {
       setError('Please enter a valid OTP');
       return;

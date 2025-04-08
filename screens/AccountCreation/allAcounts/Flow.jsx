@@ -1,10 +1,22 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Slider from "@react-native-community/slider";
+import SectionsLogin from "../../../styles/Login/Login.styles";
+import { useRequest } from "../../../hooks/useRequest";
 
-export default function FlowSlider() {
+export default function FlowSlider({onNext}) {
   const [flowLevel, setFlowLevel] = useState(0);
+  const {makeRequest} = useRequest();
+const handleNext = async()=>{
+  if(!flowLevel){
+    onNext()
+  }
 
+ const {response, error} = await makeRequest('/register', {flowLevel: flowLevels[flowLevel]});
+ if(response){
+  onNext();
+ }
+}
   // Flow labels (Full name and Abbreviation)
   const flowLevels = [
     { full: "Light", short: "L" },
@@ -16,6 +28,7 @@ export default function FlowSlider() {
   ];
 
   return (
+    <View>
     <View style={styles.container}>
       <Text style={styles.headerText}>What is your typical flow?</Text>
       <Text style={styles.desc}>
@@ -43,8 +56,23 @@ export default function FlowSlider() {
           </Text>
         ))}
       </View>
-
+      
           </View>
+          <TouchableOpacity
+        style={[SectionsLogin.loginButton]}
+        onPress={handleNext}
+      >
+        <Text
+          style={[
+            SectionsLogin.loginButtonText,
+            { fontFamily: "montserratMeduim" },
+          ]}
+        >
+          Proceed
+        </Text>
+      </TouchableOpacity>
+    </View>
+
   );
 }
 

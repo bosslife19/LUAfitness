@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, TextInput, Platform } 
 import SectionsLogin from "../../../styles/Login/Login.styles";
  
  
-export default function SubDetails( ) {
+export default function SubDetails( {onNext}) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
 
   const cycleOptions = [
@@ -21,7 +21,14 @@ export default function SubDetails( ) {
     }
   };
 
+  const handleNext = ()=>{
+    onNext()
+  }
+
   return (
+    <View>
+
+    
     <View style={styles.container}>
       <Text style={[styles.headerText,{marginBottom:30}]}>Subscription Details</Text>
       
@@ -102,6 +109,20 @@ export default function SubDetails( ) {
               placeholderTextColor={Platform.OS === "ios" ? "#94A3B8" : undefined} 
             />
             </View>
+    </View>
+     <TouchableOpacity
+                        style={[SectionsLogin.loginButton]}
+                        onPress={handleNext}
+                      >
+                        <Text
+                          style={[
+                            SectionsLogin.loginButtonText,
+                            { fontFamily: "montserratMeduim" },
+                          ]}
+                        >
+                          Proceed
+                        </Text>
+                      </TouchableOpacity>
     </View>
   );
 }

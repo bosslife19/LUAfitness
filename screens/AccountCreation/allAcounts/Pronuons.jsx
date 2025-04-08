@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import RNPickerSelect from "react-native-picker-select";
+import SectionsLogin from '../../../styles/Login/Login.styles';
+import axiosClient from '../../../axiosClient';
 
-const Pronouns = () => {
+
+const Pronouns = ({onNext}) => {
       const [gender, setGender] = useState("");
-    
+    const handleNext = async()=>{
+      if(!gender){
+        return Alert.alert('Required', 'Please choose your pronoun to proceed')
+      }
+      const res = await axiosClient.post('/register', {pronouns:gender});
+      if(res.data.status){
+        onNext();
+      }else{
+        return Alert.alert('Error', 'Please check your internet connection')
+      }
+      
+    }
     return (
         <View>
             <Text style={styles.TitleHeader}>
@@ -26,7 +40,23 @@ const Pronouns = () => {
           placeholder={{ label: " He/Him", value: null }}
           style={pickerStyles}
         />
-      </View>        
+      </View> 
+       <TouchableOpacity
+                                            style={[SectionsLogin.loginButton,
+                                             ]}
+                                         onPress={handleNext}
+                                            >
+                                          
+                                              <Text
+                                                style={[
+                                                  SectionsLogin.loginButtonText,
+                                                  { fontFamily: "montserratMeduim" },
+                                                ]}
+                                              >
+                                               Proceed
+                                              </Text>
+                                            
+                                          </TouchableOpacity>       
       </View>
     );
 }

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import SectionsLogin from "../../../styles/Login/Login.styles";
 
 export default function Symptoms({ onNext }) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
-
+const handleNext = ()=>{
+   return console.log(selectedSymptoms)
+  onNext()
+}
   const cycleOptions = [
     { label: "Cramps", value: "Cramps" },
     { label: "Fatigue", value: "Fatigue" },
@@ -26,7 +30,8 @@ export default function Symptoms({ onNext }) {
   };
 
   return (
-    <View style={styles.container}>
+    <View>
+<View style={styles.container}>
       <Text style={styles.headerText}>What are you typical symptoms?</Text>
       <Text style={styles.desc}>
       What sort of PMS and period symptoms do you experience?
@@ -56,6 +61,21 @@ export default function Symptoms({ onNext }) {
         ))}
       </View>
     </View>
+    <TouchableOpacity
+        style={[SectionsLogin.loginButton]}
+        onPress={handleNext}
+      >
+        <Text
+          style={[
+            SectionsLogin.loginButtonText,
+            { fontFamily: "montserratMeduim" },
+          ]}
+        >
+          Proceed
+        </Text>
+      </TouchableOpacity>
+    </View>
+    
   );
 }
 

@@ -1,7 +1,27 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import SectionsLogin from '../../../styles/Login/Login.styles';
+import { useRequest } from '../../../hooks/useRequest';
 
-const BirthControl = () => {
+const BirthControl = ({onNext}) => {
+  const [birthConrolType, setBirthControlType] = useState('')
+  const {makeRequest} = useRequest();
+    const handleNext = async()=>{
+      if(!birthConrolType){
+       return onNext()
+
+      }
+      try {
+        const { error} =await makeRequest('/register', {birthControlType:birthConrolType});
+      if(error){
+         return Alert.alert('Error', error);
+      }
+      } catch (error) {
+        console.log(error)
+      }
+      
+         onNext()
+    }
     return (
         <View>
             <Text style={styles.TitleHeader}>
@@ -16,7 +36,21 @@ const BirthControl = () => {
                 style={styles.input}
                 multiline={true} // Enables multi-line input
                 numberOfLines={4} // Sets the default number of visible lines
+                onChangeText={(val)=>setBirthControlType(val)}
             />
+                  <TouchableOpacity
+                    style={[SectionsLogin.loginButton]}
+                    onPress={handleNext}
+                  >
+                    <Text
+                      style={[
+                        SectionsLogin.loginButtonText,
+                        { fontFamily: "montserratMeduim" },
+                      ]}
+                    >
+                      Proceed
+                    </Text>
+                  </TouchableOpacity>
         </View>
     );
 }

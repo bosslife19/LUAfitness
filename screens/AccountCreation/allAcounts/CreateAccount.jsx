@@ -8,7 +8,7 @@ import { Platform } from "react-native";
 import Locks2 from '../../../assets/images/lock2';
 import MailIcon2 from '../../../assets/images/smstracking2';
 
-const CreateAccount = () => {
+const CreateAccount = ({onNext}) => {
       const [isPasswordVisible, setPasswordVisible] = useState(false);
       const [email, setEmail] = useState("");
       const [password, setPassword] = useState("");
@@ -16,8 +16,11 @@ const CreateAccount = () => {
       
       const [isPasswordVisibles, setPasswordVisibles] = useState(false);
     
+      const handleNext=()=>{
+        onNext()
+      }
     return (
-        <View style={{marginBottom:"20%"}}>
+        <View>
             <Text style={styles.TitleHeader}>
             Create your account
             </Text>
@@ -101,6 +104,19 @@ const CreateAccount = () => {
                 )}
               </TouchableOpacity>
             </View>
+            <TouchableOpacity
+                    style={[SectionsLogin.loginButton]}
+                    onPress={handleNext}
+                  >
+                    <Text
+                      style={[
+                        SectionsLogin.loginButtonText,
+                        { fontFamily: "montserratMeduim" },
+                      ]}
+                    >
+                      Proceed
+                    </Text>
+                  </TouchableOpacity>
         </View>
     );
 }

@@ -6,8 +6,9 @@ import Equip from "../../../assets/images/fitness/fluent_dumbbell-16-filled.png"
 import Comm from "../../../assets/images/fitness/tdesign_building-filled.png";
 import gym from "../../../assets/images/fitness/solar_dumbbells-2-bold.png";
 import Outdoor from "../../../assets/images/fitness/ri_tree-fill.png";
+import SectionsLogin from "../../../styles/Login/Login.styles";
 
-export default function Movement() {
+export default function Movement({onNext}) {
   const [selectedCycle, setSelectedCycle] = useState(null);
 
   const cycleOptions = [
@@ -18,8 +19,12 @@ export default function Movement() {
     { label: "Outdoor space", img: Outdoor, value: "Outdoor space", text: "Parks, trails, open area" },
   ];
 
+  const handleNext = ()=>{
+    onNext()
+  }
   return (
-    <View style={styles.container}>
+    <View>
+<View style={styles.container}>
       <Text style={styles.headerText}>Movement space</Text>
       <Text style={styles.desc}>This helps us better understand your fitness journey</Text>
 
@@ -49,6 +54,21 @@ export default function Movement() {
         ))}
       </ScrollView>
     </View>
+    <TouchableOpacity
+                    style={[SectionsLogin.loginButton]}
+                    onPress={handleNext}
+                  >
+                    <Text
+                      style={[
+                        SectionsLogin.loginButtonText,
+                        { fontFamily: "montserratMeduim" },
+                      ]}
+                    >
+                      Proceed
+                    </Text>
+                  </TouchableOpacity>
+    </View>
+    
   );
 }
 
