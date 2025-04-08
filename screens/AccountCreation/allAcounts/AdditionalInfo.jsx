@@ -1,10 +1,17 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import SectionsLogin from '../../../styles/Login/Login.styles';
+import { useRequest } from '../../../hooks/useRequest';
+
 
 const AdditionalInfo = ({onNext}) => {
-    const handleNext = ()=>{
-        onNext()
+  const {makeRequest} = useRequest();
+  const [additionalInfo, setAddInfo] = useState('')
+    const handleNext = async()=>{
+      if(!additionalInfo) return onNext();
+      const {response} = await makeRequest('/register', {additionalInfo});
+      if(response) return onNext();
+      Alert.alert('Error', 'Server error')
     }
     return (
         <View>
@@ -20,6 +27,7 @@ const AdditionalInfo = ({onNext}) => {
                 style={styles.input}
                 multiline={true} // Enables multi-line input
                 numberOfLines={4} // Sets the default number of visible lines
+                onChangeText={val=>setAddInfo(val)}
             />
              <TouchableOpacity
                     style={[SectionsLogin.loginButton]}

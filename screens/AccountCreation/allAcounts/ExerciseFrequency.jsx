@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import RNPickerSelect from "react-native-picker-select";
 import SectionsLogin from '../../../styles/Login/Login.styles';
+import { useRequest } from '../../../hooks/useRequest';
 
 const ExerciseFrequency = ({onNext}) => {
-      const [Exercise, setExercise] = useState("");
-    const handleNext = ()=>{
-      onNext()
+      const [exercise, setExercise] = useState("");
+      const {makeRequest} = useRequest()
+    const handleNext = async()=>{
+      if(!exercise){
+        onNext()
+      }
+      const {response} = await makeRequest('/register', {exerciseFrequency:exercise});
+      if(response){
+        return onNext();
+      }
+      Alert.alert('Error', 'Server Error');
     }
     return (
         <View>
@@ -21,11 +30,14 @@ const ExerciseFrequency = ({onNext}) => {
         <RNPickerSelect
         // value={gender}
           onValueChange={(value) => setExercise(value)}
+          
           items={[
-            { label: "Never", value: "Never" },
+            { label: "Daily", value: "Daily" },
+            { label: "Weekly", value: "Weekly" },
+            { label: "Monthly", value: "Monthly" },
              
           ]}
-          placeholder={{ label: "", value: null }}
+          placeholder={{ label: "Frequency", value: null }}
           style={pickerStyles}
         />
       </View> 

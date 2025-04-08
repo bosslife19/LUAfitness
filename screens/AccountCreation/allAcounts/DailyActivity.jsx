@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, Alert } from "react-native";
 import SectionsLogin from "../../../styles/Login/Login.styles";
+import { useRequest } from "../../../hooks/useRequest";
  
  
 export default function DailyActivity( {onNext}) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
-
+  const {makeRequest} = useRequest()
   const cycleOptions = [
     { label: "Mostly sedentary", value: "Mostly sedentary", Text:"Sitting most of the day" },
     { label: "Light activity", value: "Light activity",Text: "some walking" },
@@ -24,8 +25,18 @@ export default function DailyActivity( {onNext}) {
     }
   };
 
-  const handleNext = ()=>{
-    onNext()
+  const handleNext = async()=>{
+    
+    const symptomString = selectedSymptoms.join(', ');
+    if(!selectedSymptoms){
+      return onNext()
+    }
+    const {response} = await makeRequest('/register', {activityLevel:symptomString});
+    if(response){
+      return onNext()
+    }
+    Alert.alert('Error', 'Server Error');
+    
   }
   return (
     <View>

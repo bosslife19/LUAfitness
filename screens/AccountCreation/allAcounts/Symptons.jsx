@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import SectionsLogin from "../../../styles/Login/Login.styles";
-
+import { useRequest } from '../../../hooks/useRequest';
 export default function Symptoms({ onNext }) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
-const handleNext = ()=>{
-   return console.log(selectedSymptoms)
-  onNext()
+  const {makeRequest} = useRequest()
+const handleNext = async()=>{
+  const symptomString = selectedSymptoms.join(', ');
+  if(!selectedSymptoms){
+    onNext();
+  }
+  const {response, error} = await makeRequest('/register', {symptoms:symptomString});
+  if(response){
+return onNext()
+  }
+  console.log(error);
+  
 }
   const cycleOptions = [
     { label: "Cramps", value: "Cramps" },

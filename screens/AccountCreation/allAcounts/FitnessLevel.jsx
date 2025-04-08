@@ -1,11 +1,24 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Alert } from "react-native";
 import SectionsLogin from "../../../styles/Login/Login.styles";
+import { useRequest } from "../../../hooks/useRequest";
 
 export default function FitNess({onNext}) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
- const handleNext = ()=>{
-  onNext()
+  const {makeRequest} = useRequest();
+ const handleNext = async ()=>{
+  const symptomString = selectedSymptoms.join(', ');
+  if(!selectedSymptoms){
+    return onNext()
+  }
+  const {response, error} = await makeRequest('/register', {fitnessLevel:symptomString})
+  if(response){
+    onNext()
+  }
+ 
+if(error){
+  console.log(error)
+}
  }
   const cycleOptions = [
     { label: "Beginner", value: "Beginner", text: "New to exercise" },

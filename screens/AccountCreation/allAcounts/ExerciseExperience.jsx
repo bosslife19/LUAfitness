@@ -7,11 +7,13 @@ import Yoga from "../../../assets/images/fitness/mdi_yoga.png"
 import TeamSport from "../../../assets/images/fitness/ri_team-fill.png"
 import Others from "../../../assets/images/fitness/mdi_dance-ballroom.png"
 import SectionsLogin from "../../../styles/Login/Login.styles";
+import { useRequest } from "../../../hooks/useRequest";
 
 
 
 export default function ExerciseExperience({onNext} ) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
+  const {makeRequest} = useRequest()
 
   const cycleOptions = [
     { label: "weights", value: "weights", img:weight },
@@ -23,8 +25,19 @@ export default function ExerciseExperience({onNext} ) {
 
    ];
 
-   const handleNext = ()=>{
-    onNext()
+   const handleNext = async ()=>{
+    const symptomString = selectedSymptoms.join(', ');
+    if(!selectedSymptoms){
+      return onNext()
+    }
+    const {response, error} = await makeRequest('/register', {exerciseExperience:symptomString})
+    if(response){
+      onNext()
+    }
+   
+  if(error){
+    console.log(error)
+  }
    }
   const toggleSelection = (value) => {
     if (selectedSymptoms.includes(value)) {

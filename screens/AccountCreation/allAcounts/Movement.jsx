@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet, Image } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet, Image, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // Importing icon for checkmark
 import home from "../../../assets/images/fitness/Group.png";
 import Equip from "../../../assets/images/fitness/fluent_dumbbell-16-filled.png";
@@ -7,10 +7,11 @@ import Comm from "../../../assets/images/fitness/tdesign_building-filled.png";
 import gym from "../../../assets/images/fitness/solar_dumbbells-2-bold.png";
 import Outdoor from "../../../assets/images/fitness/ri_tree-fill.png";
 import SectionsLogin from "../../../styles/Login/Login.styles";
+import { useRequest } from "../../../hooks/useRequest";
 
 export default function Movement({onNext}) {
   const [selectedCycle, setSelectedCycle] = useState(null);
-
+const {makeRequest} = useRequest()
   const cycleOptions = [
     { label: "Home space", img: home, value: "Home space", text: "Any room with open floor space" },
     { label: "Equipment filled room", img: Equip, value: "Equipment filled room", text: "Any room with fitness equipment" },
@@ -19,8 +20,15 @@ export default function Movement({onNext}) {
     { label: "Outdoor space", img: Outdoor, value: "Outdoor space", text: "Parks, trails, open area" },
   ];
 
-  const handleNext = ()=>{
-    onNext()
+  const handleNext = async()=>{
+    if(!selectedCycle) onNext();
+    const {response} = await makeRequest('/register', {movementSpace:selectedCycle});
+    if(response){
+      return onNext()
+    }
+
+    Alert.alert('Error', 'Server Error');
+    
   }
   return (
     <View>

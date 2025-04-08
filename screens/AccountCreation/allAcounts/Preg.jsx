@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import RNPickerSelect from "react-native-picker-select";
 import SectionsLogin from '../../../styles/Login/Login.styles';
+import { useRequest } from '../../../hooks/useRequest';
 
 const Preg = ({onNext}) => {
-      const [Preg, setPreg] = useState("");
+      const [preg, setPreg] = useState("");
+      const {makeRequest} = useRequest();
     const handleNext = ()=>{
-      onNext()
+      if(!preg) return onNext();
+      makeRequest('/register', {pregnant:preg}).then(res=>onNext()).catch(e=>console.log(e));
+
+      
     }
     return (
         <View >
@@ -25,7 +30,8 @@ const Preg = ({onNext}) => {
         // value={gender}
           onValueChange={(value) => setPreg(value)}
           items={[
-            { label: "Never", value: "Never" },
+            { label: "Yes", value: "Yes" },
+            { label: "No", value: "No" },
              
           ]}
           placeholder={{ label: "Select your status", value: null ,color:"#94A3B8"}}
