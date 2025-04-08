@@ -99,36 +99,36 @@ const Account = () => {
             <OptionDetails1 onNext={handleNext}/>
             
           ) : (
-            stepIndex - verificationSteps.length === 0 ? <LegalName /> :
-            stepIndex - verificationSteps.length === 1 ? <PreferedName /> :
-            stepIndex - verificationSteps.length === 2 ? <Pronouns /> :
-            stepIndex - verificationSteps.length === 3 ? <ShareIntentions /> :
-            stepIndex - verificationSteps.length === 4 ? <SupportStyle /> :
-            stepIndex - verificationSteps.length === 5 ? <Period /> :
-            stepIndex - verificationSteps.length === 6 ? <BirthControl /> :
-            stepIndex - verificationSteps.length === 7 ? <Cycles /> :
-            stepIndex - verificationSteps.length === 8 ? <FlowSlider /> :
-            stepIndex - verificationSteps.length === 9 ? <Symptoms /> :
-            stepIndex - verificationSteps.length === 10 ? <FitNess /> :
-            stepIndex - verificationSteps.length === 11 ? <ExerciseExperience /> :
-            stepIndex - verificationSteps.length === 12 ? <ExerciseFrequency /> :
-            stepIndex - verificationSteps.length === 13 ? <DailyActivity /> :
-            stepIndex - verificationSteps.length === 14 ? <AdditionalInfo /> :
-            stepIndex - verificationSteps.length === 15 ? <Movement /> :
-            stepIndex - verificationSteps.length === 16 ? <Medical /> :
-            stepIndex - verificationSteps.length === 17 ? <Support /> :
-            stepIndex - verificationSteps.length === 18 ? <MovementConsider /> :
-            stepIndex - verificationSteps.length === 19 ? <RecentProce /> :
-            stepIndex - verificationSteps.length === 20 ? <Preg /> :
-            stepIndex - verificationSteps.length === 21 ? <MovemResp /> :
-            stepIndex - verificationSteps.length === 22 ? <HealthProv /> :
-            stepIndex - verificationSteps.length === 23 ? <AdditionlInfos /> :
-            stepIndex - verificationSteps.length === 24 ? <PhysicalActivity /> :
-            stepIndex - verificationSteps.length === 25 ? <Acknownleg /> :
-            stepIndex - verificationSteps.length === 26 ? <Aggrement /> :
-            stepIndex - verificationSteps.length === 27 ? <CreateAccount /> :
-            stepIndex - verificationSteps.length === 28? <SubDetails /> :
-            stepIndex - verificationSteps.length === 29 ? <PaymentInfo /> :
+            stepIndex - verificationSteps.length === 0 ? <LegalName onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 1 ? <PreferedName onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 2 ? <Pronouns onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 3 ? <ShareIntentions onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 4 ? <SupportStyle onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 5 ? <Period onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 6 ? <BirthControl onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 7 ? <Cycles onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 8 ? <FlowSlider onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 9 ? <Symptoms onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 10 ? <FitNess onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 11 ? <ExerciseExperience onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 12 ? <ExerciseFrequency onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 13 ? <DailyActivity onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 14 ? <AdditionalInfo onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 15 ? <Movement onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 16 ? <Medical onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 17 ? <Support onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 18 ? <MovementConsider onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 19 ? <RecentProce onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 20 ? <Preg onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 21 ? <MovemResp onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 22 ? <HealthProv onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 23 ? <AdditionlInfos onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 24 ? <PhysicalActivity onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 25 ? <Acknownleg onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 26 ? <Aggrement onNext={handleNext}/> :
+            stepIndex - verificationSteps.length === 27 ? <CreateAccount onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 28? <SubDetails onNext={handleNext} /> :
+            stepIndex - verificationSteps.length === 29 ? <PaymentInfo onNext={handleNext} /> :
             stepIndex - verificationSteps.length === 30 ? <OrderSummary  onNext={handleNext}/> 
             : ""
   
@@ -145,13 +145,13 @@ const Account = () => {
           )}
 
          
-            <TouchableOpacity
+            {/* <TouchableOpacity
               style={[styles.btns, { backgroundColor: "#8A2BE2" }]}
               onPress={handleNext}
               disabled={stepIndex === verificationSteps.length + menuItems.length - 1}
             >
               <Text style={[styles.button, { color: "#fff" }]}>Proceed</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
          
         </View>
          )}

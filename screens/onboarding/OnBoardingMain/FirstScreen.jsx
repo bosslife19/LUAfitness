@@ -7,6 +7,7 @@ import { useRouter } from "expo-router";
 import { commonstyles } from "../../../styles/common/common.style";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
+
 export const onboardingSwiperData = [
   {
     id: 1,
@@ -44,7 +45,8 @@ export default function FirstScreen() {
   };
 
   const renderItem = ({ item }) => (
-    <ImageBackground source={item.image} style={styles.slide} resizeMode="cover">
+    
+ <ImageBackground source={item.image} style={styles.slide} resizeMode="cover">
       {/* Darker Gradient Overlay at the top */}
       <LinearGradient
       colors={["rgb(0, 0, 0)", "rgba(0, 0, 0, 0.82)", "transparent"]}
@@ -61,6 +63,8 @@ export default function FirstScreen() {
         <Text style={styles.texts}>{item.note}</Text>
       </View>
     </ImageBackground>
+
+   
   );
 
   return (
@@ -70,10 +74,10 @@ export default function FirstScreen() {
       onSlideChange={(index) => setCurrentIndex(index)}
       renderNextButton={() => (
         <View style={styles.buttonContainer}>
-          <View style={commonstyles.welcomeButton}>
+          <TouchableOpacity onPress={()=>router.push('/(routes)/register')} style={commonstyles.welcomeButton}>
             <Text style={commonstyles.Getstart}>{currentIndex === 0 ? "Get Started" : "Continue"}</Text>
             <AntDesign name="arrowright" size={24} color="black" />
-          </View>
+          </TouchableOpacity>
           {currentIndex === 0 && (
              <TouchableOpacity onPress={handleGetStarted} style={commonstyles.skipButton}>
               <Text style={commonstyles.textSkip}>Skip</Text>
@@ -142,5 +146,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 10,
+    top:'-45%'
   },
 });

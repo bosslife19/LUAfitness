@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import RNPickerSelect from "react-native-picker-select";
+import SectionsLogin from '../../../styles/Login/Login.styles';
+import { useRequest } from '../../../hooks/useRequest';
 
-const Cycles = () => {
+const Cycles = ({onNext}) => {
       const [gender, setGender] = useState("");
-    
+      const {makeRequest} = useRequest()
+    const handleNext = async ()=>{
+      if(!gender){
+        onNext()
+      }
+      const {response, error} = await makeRequest('/register', {cycleReg:gender})
+      if(response){
+        onNext()
+      }else{
+        console.log(error);
+        
+      }
+      
+    }
     return (
         <View>
             <Text style={styles.TitleHeader}>
@@ -20,12 +35,25 @@ const Cycles = () => {
           onValueChange={(value) => setGender(value)}
           items={[
             { label: "Regular", value: "Regular" },
-            
+            {label:"Irregular", value:'Irregular'}
           ]}
-          placeholder={{ label: "Regular ", value: null }}
+          // placeholder={{ label: "Regular ", value: null }}
           style={pickerStyles}
         />
-      </View>        
+      </View>  
+            <TouchableOpacity
+              style={[SectionsLogin.loginButton]}
+              onPress={handleNext}
+            >
+              <Text
+                style={[
+                  SectionsLogin.loginButtonText,
+                  { fontFamily: "montserratMeduim" },
+                ]}
+              >
+                Proceed
+              </Text>
+            </TouchableOpacity>      
       </View>
     );
 }

@@ -1,9 +1,25 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // Importing icon for checkmark
+import SectionsLogin from "../../../styles/Login/Login.styles";
+import { useRequest } from "../../../hooks/useRequest";
 
-export default function Period( ) {
+export default function Period({onNext} ) {
   const [selectedCycle, setSelectedCycle] = useState(null);
+  const {makeRequest} = useRequest()
+  const handleNext = async()=>{
+    if(!selectedCycle){
+      return  onNext()
+    }
+    const {response, error} = await makeRequest('/register', {periodType:selectedCycle})
+    if(response){
+      onNext()
+    }
+    if(error){
+      return Alert.alert('Error', error)
+    }
+    
+  }
 
   const cycleOptions = [
     { label: "Monthly Period", value: "Monthly Period", text: "Select this option if you experience a monthly period." },
@@ -12,7 +28,8 @@ export default function Period( ) {
   ];
 
   return (
-    <View style={styles.container}>
+    <View>
+ <View style={styles.container}>
       <Text style={styles.headerText}>Do you have a period?</Text>
       <Text style={styles.desc}>
       Please the options that best describes you.
@@ -48,6 +65,21 @@ export default function Period( ) {
         ))}
       </ScrollView>
     </View>
+    <TouchableOpacity
+        style={[SectionsLogin.loginButton]}
+        onPress={handleNext}
+      >
+        <Text
+          style={[
+            SectionsLogin.loginButtonText,
+            { fontFamily: "montserratMeduim" },
+          ]}
+        >
+          Proceed
+        </Text>
+      </TouchableOpacity>
+    </View>
+   
   );
 }
 

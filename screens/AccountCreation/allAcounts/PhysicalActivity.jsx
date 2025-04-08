@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // For checkbox icons
+import SectionsLogin from "../../../styles/Login/Login.styles";
 
-export default function PhysicalActivity() {
+export default function PhysicalActivity({onNext}) {
   const [answers, setAnswers] = useState({});
 
   const questions = [
@@ -20,7 +21,14 @@ export default function PhysicalActivity() {
     setAnswers((prev) => ({ ...prev, [question]: answer }));
   };
 
+  const handleNext = ()=>{
+    onNext()
+  }
+
   return (
+    <View>
+
+    
     <View style={styles.container}>
       <Text style={styles.title}>Physical Activity Readiness Questionnaire</Text>
       {questions.map((question, index) => (
@@ -51,6 +59,20 @@ export default function PhysicalActivity() {
           </View>
         </View>
       ))}
+    </View>
+    <TouchableOpacity
+                    style={[SectionsLogin.loginButton]}
+                    onPress={handleNext}
+                  >
+                    <Text
+                      style={[
+                        SectionsLogin.loginButtonText,
+                        { fontFamily: "montserratMeduim" },
+                      ]}
+                    >
+                      Proceed
+                    </Text>
+                  </TouchableOpacity>
     </View>
   );
 }

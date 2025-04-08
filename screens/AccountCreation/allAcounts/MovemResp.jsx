@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import RNPickerSelect from "react-native-picker-select";
+import SectionsLogin from '../../../styles/Login/Login.styles';
 
-const MovemResp = () => {
+const MovemResp = ({onNext}) => {
       const [MovemResp, setMovemResp] = useState("");
+
+      const handleNext = ()=>{
+        onNext()
+      }
     
     return (
-        <View style={{marginBottom:"30%"}}>
+        <View >
             <Text style={styles.TitleHeader}>
             Movement Response
             </Text>
@@ -28,7 +33,20 @@ const MovemResp = () => {
           placeholder={{ label: "Select your sensations", value: null ,color:"#94A3B8"}}
           style={pickerStyles}
         />
-      </View>        
+      </View> 
+                   <TouchableOpacity
+                          style={[SectionsLogin.loginButton]}
+                          onPress={handleNext}
+                        >
+                          <Text
+                            style={[
+                              SectionsLogin.loginButtonText,
+                              { fontFamily: "montserratMeduim" },
+                            ]}
+                          >
+                            Proceed
+                          </Text>
+                        </TouchableOpacity>       
       </View>
     );
 }

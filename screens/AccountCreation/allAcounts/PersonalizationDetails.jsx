@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Platform } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Platform, Alert } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import { Ionicons } from "@expo/vector-icons";
 import SectionsLogin from "../../../styles/Login/Login.styles";
+import axios from "axios";
+import axiosClient from "../../../axiosClient";
 
 export default function PersonalizationDetails({ onNext }) {
   const [dob, setDob] = useState("");
@@ -10,10 +12,24 @@ export default function PersonalizationDetails({ onNext }) {
   const [fitnessLevel, setFitnessLevel] = useState("");
   const [fitnessGoals, setFitnessGoals] = useState("");
 
-  const handleProceed =()=>{
+  const handleProceed =async ()=>{
+    try {
+      const res = await axiosClient.post(`/register`,{
+        dob,gender,fitnessLevel,fitnessGoals
+       })
+       if(res.data.status){
+      // if sucessfull it will go to the next page
+     
+      return onNext();  
+       }
+    } catch (error) {
+      Alert.alert('Error', 'Please check your internet connection')
+      console.log(error)
+    }
  
-    // if sucessfull it will go to the next page
-    onNext();  
+
+ 
+    
   }
 
   const handleSkip =() =>{

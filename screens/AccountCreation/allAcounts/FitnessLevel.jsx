@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import SectionsLogin from "../../../styles/Login/Login.styles";
 
-export default function FitNess() {
+export default function FitNess({onNext}) {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
-
+ const handleNext = ()=>{
+  onNext()
+ }
   const cycleOptions = [
     { label: "Beginner", value: "Beginner", text: "New to exercise" },
     { label: "Novice", value: "Novice", text: "Some exercise experience" },
@@ -20,6 +23,7 @@ export default function FitNess() {
   };
 
   return (
+    <View>
     <View style={styles.container}>
       <Text style={styles.headerText}>Fitness Level</Text>
       <Text style={styles.desc}>Let’s know more about your fitness level</Text>
@@ -47,6 +51,20 @@ export default function FitNess() {
           </TouchableOpacity>
         ))}
       </ScrollView>
+    </View>
+    <TouchableOpacity
+        style={[SectionsLogin.loginButton]}
+        onPress={handleNext}
+      >
+        <Text
+          style={[
+            SectionsLogin.loginButtonText,
+            { fontFamily: "montserratMeduim" },
+          ]}
+        >
+          Proceed
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }

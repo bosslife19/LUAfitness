@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import SectionsLogin from '../../../styles/Login/Login.styles';
  
-const AdditionlInfos = () => {
-     
+const AdditionlInfos = ({onNext}) => {
+     const handleNext = ()=>{
+      onNext()
+     }
     return (
-        <View style={{marginBottom:"30%"}}>
+        <View >
             <Text style={styles.TitleHeader}>
             Additional information
             </Text>
@@ -21,7 +24,20 @@ const AdditionlInfos = () => {
                style={styles.input}
                multiline={true} // Enables multi-line input
                numberOfLines={4} // Sets the default number of visible lines
-             />       
+             />   
+                          <TouchableOpacity
+                    style={[SectionsLogin.loginButton]}
+                    onPress={handleNext}
+                  >
+                    <Text
+                      style={[
+                        SectionsLogin.loginButtonText,
+                        { fontFamily: "montserratMeduim" },
+                      ]}
+                    >
+                      Proceed
+                    </Text>
+                  </TouchableOpacity>    
       </View>
     );
 }
