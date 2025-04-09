@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 // import MailIcon from '../../../assets/images/smstracking';
 import Locks from '../../../assets/images/lock';
 import { Ionicons } from '@expo/vector-icons';
@@ -7,17 +7,30 @@ import SectionsLogin from '../../../styles/Login/Login.styles';
 import { Platform } from "react-native";
 import Locks2 from '../../../assets/images/lock2';
 import MailIcon2 from '../../../assets/images/smstracking2';
+import { useRequest } from '../../../hooks/useRequest';
 
 const CreateAccount = ({onNext}) => {
       const [isPasswordVisible, setPasswordVisible] = useState(false);
+      const {makeRequest} = useRequest();
       const [email, setEmail] = useState("");
       const [password, setPassword] = useState("");
       const [confirmpassword, setconfirmpassword] = useState("");
       
       const [isPasswordVisibles, setPasswordVisibles] = useState(false);
     
-      const handleNext=()=>{
-        onNext()
+      const handleNext=async ()=>{
+        if(!email || !password || !confirmpassword){
+          return Alert.alert('Required', 'Please fill all fields to continue')
+        }
+        if(password !== confirmpassword){
+          return Alert.alert('Passwords do not match', 'Your password has to match the confirm password')
+        }
+        const {response} = await makeRequest('/register-user', {email, password});
+        if(response){
+          return onNext();
+        }
+        Alert.alert('Error', 'Server Error');
+        
       }
     return (
         <View>

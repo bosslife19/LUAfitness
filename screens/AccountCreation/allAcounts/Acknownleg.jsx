@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // Import Ionicons for checkbox
 import SectionsLogin from "../../../styles/Login/Login.styles";
 
@@ -10,6 +10,9 @@ const Acknownleg = ({onNext}) => {
     setSelectedCycle(!selectedCycle);
   };
   const handleNext = ()=>{
+    if(!selectedCycle){
+      return Alert.alert('Consent Required', 'Please consent to participation before proceeding')
+    }
     onNext();
   }
 

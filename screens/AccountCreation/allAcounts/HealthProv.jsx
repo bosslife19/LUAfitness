@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import RNPickerSelect from "react-native-picker-select";
 import SectionsLogin from '../../../styles/Login/Login.styles';
+import { useRequest } from '../../../hooks/useRequest';
 
 const HealthProv = ({onNext}) => {
-      const [HealthProv, setHealthProv] = useState("");
-    const handleNext=()=>{
-      onNext()
+      const [healthProv, setHealthProv] = useState("");
+      const {makeRequest} = useRequest()
+    const handleNext=async()=>{
+      if(!healthProv) return onNext();
+      const {response} = await makeRequest("/register", {healthProv});
+      if(response) return onNext();
+      Alert.alert('Error', 'Server Error');
     }
     return (
         <View >
@@ -21,16 +26,14 @@ const HealthProv = ({onNext}) => {
              Has a healthcare provider given you specific movement guidance?
              </Text>
         <View style={styles.inputContainer}>
-        <RNPickerSelect
-        // value={gender}
-          onValueChange={(value) => setHealthProv(value)}
-          items={[
-            { label: "Never", value: "Never" },
-             
-          ]}
-          placeholder={{ label: "Select your response", value: null ,color:"#94A3B8"}}
-          style={pickerStyles}
-        />
+         <TextInput
+                                    keyboardType="default"
+                                       placeholder="Write your thoughts"
+                                       style={styles.input}
+                                       multiline={true} 
+                                       numberOfLines={4} 
+                                       onChangeText={val=>setHealthProv(val)}
+                                   />
       </View>   
       <TouchableOpacity
                     style={[SectionsLogin.loginButton]}
@@ -72,13 +75,14 @@ const styles = StyleSheet.create({
         marginBottom:10
     },
     input:{
-         borderWidth:1,
+        //  borderWidth:1,
          paddingLeft:20,
          paddingBottom:20,
          paddingTop:20,
          marginTop:20,
          borderColor:"#ECDAFE",
-         borderRadius:30
+         borderRadius:30,
+         
     }
 })
 
